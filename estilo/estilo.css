@@ -37,7 +37,7 @@ nav {
 nav a {
     margin: 0 10px;
     text-decoration: none;
-    color: #13292A; /* Teal para los enlaces en el nav */
+    color: #1bb1b9; /* Teal para los enlaces en el nav */
 }
 
 /* Estilos para el header */
@@ -59,8 +59,6 @@ header h3 {
 /* Estilos para la lista de enlaces en el nav */
 /* Selector de tipo descendiente - Especificidad: 1,1 */
 header nav ul {
-    list-style: none; /* Quita los puntos de la lista */
-    padding: 0; /* Elimina el padding por defecto */
     margin: 10px 0 0; /* Margen superior y por defecto */
 }
 
@@ -185,7 +183,7 @@ caption {
 /* Estilos para los enlaces */
 /* Selector de tipo elemento - Especificidad: 1 */
 a {
-    color: #13292A; /* Teal para los enlaces */
+    color: #3b7de0; /* Teal para los enlaces */
     text-decoration: none;
 }
 
@@ -193,7 +191,7 @@ a {
 /* Selector de tipo elemento con pseudo-clase - Especificidad: 1,0,1 */
 a:hover {
     text-decoration: underline;
-    color: #00b6bc; /* Blue Green al pasar el mouse */
+    color: #039297; /* Blue Green al pasar el mouse */
 }
 
 /* Estilos para audio y video */
