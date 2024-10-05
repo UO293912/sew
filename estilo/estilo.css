@@ -214,7 +214,7 @@ audio, video {
 /* Tamaño para pantallas medianas, entre 466px y 799px */
 @media (min-width: 466px) and (max-width: 799px) {
     video {
-        width: 420px; /* Tamaño fijo para pantallas medianas */
+        width: 390px; /* Tamaño fijo para pantallas medianas */
         object-fit: cover; /* Mantiene la proporción del video sin deformar */
     }
 }
