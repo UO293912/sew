@@ -206,6 +206,7 @@ a:hover {
 /* Selector de tipo elemento - Especificidad: 1 */
 audio, video {
     display: block;
+    box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total */
     margin: 20px;
 }
 
