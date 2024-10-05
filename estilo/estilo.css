@@ -1,0 +1,250 @@
+/* Nicolás Guerbartchouk Pérez UO293912*/
+
+/* Establecer la tipografía general en el body */
+/* Selector de tipo elemento - Especificidad: 1 */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f3e7; /* Beige claro como fondo general */
+    color: #333333; /* Color de texto gris oscuro */
+}
+
+/* Estilos para el título principal */
+/* Selector de tipo elemento - Especificidad: 1 */
+h1 {
+    font-size: 3em;
+    text-align: center;
+    background-color: #e7ded9; /* Cream como fondo del h1 */
+    color: #13292A; /* Teal para el texto */
+    padding: 10px; /* Espaciado interno */
+    margin: 20px 0; /* Margen superior e inferior */
+    border-radius: 8px; /* Esquinas redondeadas */
+}
+
+/* Estilos para la navegación principal */
+/* Selector de tipo elemento - Especificidad: 1 */
+nav {
+    background-color: #f2f2f2; /* Color suave para el fondo del nav */
+    padding: 10px;
+    border-radius: 5px; /* Esquinas redondeadas */
+}
+
+/* Estilos para los enlaces dentro de nav */
+/* Selector de tipo descendiente - Especificidad: 1,1 */
+nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #13292A; /* Teal para los enlaces en el nav */
+}
+
+/* Estilos para el header */
+/* Selector de tipo elemento - Especificidad: 1 */
+header {
+    background-color: #e7ded9; /* Cream para el header */
+    padding: 15px; /* Espaciado interno */
+    border-radius: 8px; /* Esquinas redondeadas */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Estilos para el h3 dentro de header */
+/* Selector de tipo descendiente - Especificidad: 1,1 */
+header h3 {
+    margin-top: 0; /* Elimina el margen superior del h3 */
+    color: #13292A; /* Teal como color del texto */
+}
+
+/* Estilos para la lista de enlaces en el nav */
+/* Selector de tipo descendiente - Especificidad: 1,1 */
+header nav ul {
+    list-style: none; /* Quita los puntos de la lista */
+    padding: 0; /* Elimina el padding por defecto */
+    margin: 10px 0 0; /* Margen superior y por defecto */
+}
+
+/* Estilos para los elementos de la lista */
+/* Selector de tipo descendiente - Especificidad: 1,1 */
+header nav ul li {
+    margin-right: 15px; /* Espacio entre los enlaces */
+}
+
+/* Estilos para los enlaces */
+/* Selector de tipo descendiente - Especificidad: 1,1 */
+header nav a {
+    color: #13292A; /* Teal para los enlaces */
+    text-decoration: none; /* Sin subrayado */
+    font-weight: bold; /* Texto en negrita */
+}
+
+/* Estilos para los enlaces al pasar el mouse */
+/* Selector de tipo descendiente con pseudo-clase - Especificidad: 1,1,1 */
+header nav a:hover {
+    text-decoration: underline; /* Subrayado al pasar el mouse */
+    color: #00b6bc; /* Blue Green al pasar el mouse */
+}
+
+/* Estilos para el main */
+/* Selector de tipo elemento - Especificidad: 1 */
+main {
+    padding: 20px;
+    background-color: #ffffff; /* Color de fondo blanco */
+    border: 2px solid #988780; /* Borde en Taupe */
+    border-radius: 5px; /* Esquinas redondeadas */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra más notable */
+    margin-bottom: 20px; /* Espaciado inferior */
+}
+
+/* Estilos para las secciones dentro de main */
+/* Selector de tipo descendiente - Especificidad: 1,1 */
+main section {
+    margin-bottom: 20px;
+    border: 2px solid #988780; /* Borde en Taupe */
+    padding: 15px; /* Espaciado interno */
+    border-radius: 5px; /* Esquinas redondeadas */
+    background-color: #e7ded9; /* Cream como fondo de las secciones */
+}
+
+/* Estilos para h2 y h3 */
+/* Selector de tipo elemento - Especificidad: 1 */
+h2 {
+    font-size: 2.2em;
+    margin-bottom: 10px;
+    color: #13292A; /* Teal para los h2 */
+}
+
+/* Estilos para h3 dentro de main */
+/* Selector de tipo descendiente - Especificidad: 1,1 */
+main h3 {
+    font-size: 1.5em; /* Tamaño de fuente */
+    margin: 5px 0 10px; /* Margen superior reducido */
+    color: #13292A; /* Teal como color del texto */
+    padding: 8px; /* Espaciado interno */
+    border-radius: 5px; /* Esquinas redondeadas */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Estilos para los párrafos */
+/* Selector de tipo elemento - Especificidad: 1 */
+p {
+    font-size: 1em;
+    color: #495057; /* Color del texto gris medio */
+    margin-bottom: 10px;
+}
+
+/* Estilos para las listas no ordenadas */
+/* Selector de tipo elemento - Especificidad: 1 */
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+/* Estilos para las listas ordenadas */
+/* Selector de tipo elemento - Especificidad: 1 */
+ol {
+    list-style-type: decimal;
+    padding-left: 20px;
+}
+
+/* Estilos para el aside */
+/* Selector de tipo elemento - Especificidad: 1 */
+aside {
+    background-color: #ffffff; /* Color de fondo blanco */
+    padding: 15px;
+    margin: 20px 0;
+    border: 2px solid #988780; /* Borde en Taupe */
+    border-radius: 5px; /* Esquinas redondeadas */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Estilos para las tablas */
+/* Selector de tipo elemento - Especificidad: 1 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+/* Estilos para las celdas de la tabla */
+/* Selector de tipo elemento - Especificidad: 1 */
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+}
+
+/* Estilos para el caption de la tabla */
+/* Selector de tipo elemento - Especificidad: 1 */
+caption {
+    caption-side: top;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Estilos para los enlaces */
+/* Selector de tipo elemento - Especificidad: 1 */
+a {
+    color: #13292A; /* Teal para los enlaces */
+    text-decoration: none;
+}
+
+/* Estilos para los enlaces al pasar el mouse */
+/* Selector de tipo elemento con pseudo-clase - Especificidad: 1,0,1 */
+a:hover {
+    text-decoration: underline;
+    color: #00b6bc; /* Blue Green al pasar el mouse */
+}
+
+/* Estilos para audio y video */
+/* Selector de tipo elemento - Especificidad: 1 */
+audio, video {
+    display: block;
+    margin: 20px;
+}
+
+/* Tamaño para pantallas pequeñas, máximo 465px */
+@media (max-width: 465px) {
+    video {
+        width: 250px; /* Tamaño fijo para pantallas pequeñas */
+        object-fit: cover; /* Mantiene la proporción del video sin deformar */
+    }
+}
+
+/* Tamaño para pantallas medianas, entre 466px y 799px */
+@media (min-width: 466px) and (max-width: 799px) {
+    video {
+        width: 420px; /* Tamaño fijo para pantallas medianas */
+        object-fit: cover; /* Mantiene la proporción del video sin deformar */
+    }
+}
+
+/* Tamaño para pantallas grandes, mínimo 800px */
+@media (min-width: 800px) {
+    video {
+        width: 630px; /* Tamaño fijo para pantallas grandes */
+        object-fit: cover; /* Mantiene la proporción del video sin deformar */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
