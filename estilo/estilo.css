@@ -37,7 +37,8 @@ nav {
 nav a {
     margin: 0 10px;
     text-decoration: none;
-    color: #1bb1b9; /* Teal para los enlaces en el nav */
+    color: #0707ac; /* Teal para los enlaces en el nav */
+    font-weight: bold;
 }
 
 /* Estilos para el header */
@@ -71,7 +72,7 @@ header nav ul li {
 /* Estilos para los enlaces */
 /* Selector de tipo descendiente - Especificidad: 1,1 */
 header nav a {
-    color: #13292A; /* Teal para los enlaces */
+    color: #0707ac; /* Teal para los enlaces */
     text-decoration: none; /* Sin subrayado */
     font-weight: bold; /* Texto en negrita */
 }
@@ -80,7 +81,7 @@ header nav a {
 /* Selector de tipo descendiente con pseudo-clase - Especificidad: 1,1,1 */
 header nav a:hover {
     text-decoration: underline; /* Subrayado al pasar el mouse */
-    color: #00b6bc; /* Blue Green al pasar el mouse */
+    color: #039297; /* Blue Green al pasar el mouse */
 }
 
 /* Estilos para el main */
@@ -183,7 +184,7 @@ caption {
 /* Estilos para los enlaces */
 /* Selector de tipo elemento - Especificidad: 1 */
 a {
-    color: #3b7de0; /* Teal para los enlaces */
+    color: #0707ac; /* Teal para los enlaces */
     text-decoration: none;
 }
 
