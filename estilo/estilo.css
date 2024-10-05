@@ -155,22 +155,28 @@ aside {
     border: 2px solid #988780; /* Borde en Taupe */
     border-radius: 5px; /* Esquinas redondeadas */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    width: 100%; /* Asegura que el aside ocupe el 100% del ancho */
+    min-height: 100vh; /* Asegura que el aside ocupe al menos el 100% de la altura de la ventana */
+    box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total */
+    overflow-x: auto; /* Permite el desplazamiento horizontal si es necesario */
 }
 
 /* Estilos para las tablas */
 /* Selector de tipo elemento - Especificidad: 1 */
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
+    width: 100%; /* Asegura que la tabla ocupe el 100% del ancho */
+    border-collapse: collapse; /* Colapsa bordes de las celdas */
+    margin-bottom: 20px; /* Espacio inferior */
+    table-layout: auto; /* Permite que la tabla ajuste su tamaño según su contenido */
 }
 
 /* Estilos para las celdas de la tabla */
 /* Selector de tipo elemento - Especificidad: 1 */
 th, td {
-    border: 1px solid #ccc;
-    padding: 8px;
-    text-align: center;
+    border: 1px solid #ccc; /* Borde de las celdas */
+    padding: 8px; /* Espaciado interno */
+    text-align: center; /* Alineación del texto */
+    word-wrap: break-word; /* Permite que el texto largo se divida en la celda */
 }
 
 /* Estilos para el caption de la tabla */
