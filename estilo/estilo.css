@@ -164,7 +164,7 @@ dl {
 /* Especificidad: 0,0,2 */
 dl dt {
     font-weight: bold; /* Negrita */
-    color: #1a73e8; /* Color azul para los términos */
+    color: #104D9E; /* Color azul para los términos */
     background-color: #e8f0fe; /* Fondo azul claro */
     border: 0.2em  solid #1a73e8; /* Borde azul */
 }
