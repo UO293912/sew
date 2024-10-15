@@ -25,7 +25,7 @@ header nav a {
 /* Estilos para el main */
 /* Especificidad: 0,0,1 */
 main {
-    padding: 2rem; /* Usar rem para espaciado adaptable */
+    padding: 2em; /* Usar rem para espaciado adaptable */
     border-radius: 0.5em; /* Esquinas redondeadas relativas */
     margin-bottom: 2em; /* Espaciado inferior adaptable */
 }
@@ -34,15 +34,15 @@ main {
 /* Especificidad: 0,0,2 */
 main section {
     margin-bottom: 2em; /* Espaciado inferior adaptable */
-    padding: 1.5rem; /* Espaciado interno adaptable */
+    padding: 1.5em; /* Espaciado interno adaptable */
     border-radius: 0.5em; /* Esquinas redondeadas relativas */
 }  
 
 /* Estilos para el aside */
 /* Especificidad: 0,0,1 */
 aside {
-    padding: 1.5rem; /* Espaciado adaptable */
-    margin: 2rem 0; /* Margen adaptable */
+    padding: 1.5em; /* Espaciado adaptable */
+    margin: 2em 0; /* Margen adaptable */
     border-radius: 0.5em; /* Esquinas redondeadas relativas */
     width: 100%; /* Asegura que el aside ocupe el 100% del ancho */
     box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total */
@@ -70,7 +70,7 @@ h1{
 /* Estilos para h2 */
 /* Especificidad: 0,0,1 */
 h2 {
-    margin-bottom: 0.5rem; /* Espaciado inferior adaptable */
+    margin-bottom: 0.5em; /* Espaciado inferior adaptable */
 }
 
 /* Estilos para h3 dentro de main */
@@ -82,13 +82,13 @@ h3 {
 }
 
 h4{
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.5em;
 }
 
 /* Estilos para los párrafos */
 /* Especificidad: 0,0,1 */
 p {
-    margin-bottom: 1rem; /* Margen inferior adaptable */
+    margin-bottom: 1em; /* Margen inferior adaptable */
 }
 
 /* Estilos para listas no ordenadas */
@@ -162,7 +162,7 @@ dd::before {
 table {
     width: 100%; /* Asegura que la tabla ocupe el 100% del ancho */
     border-collapse: collapse; /* Colapsa bordes de las celdas */
-    margin-bottom: 2rem; /* Espaciado inferior adaptable */
+    margin-bottom: 2em; /* Espaciado inferior adaptable */
     table-layout: fixed; /* Permite que la tabla ajuste su tamaño según su contenido */
 }
 
@@ -178,26 +178,26 @@ th, td {
 /* Estilos para los encabezados de columna */
 /* Especificidad: 0,1,2*/
 thead th[scope="col"] {
-    padding: 1rem; /* Padding para un mejor espaciado */
+    padding: 1em; /* Padding para un mejor espaciado */
 }
 
 /* Estilos para los encabezados de fila */
 /* Especificidad: 0,1,1*/
 th[scope="row"] {
-    padding: 0.8rem; /* Padding para un mejor espaciado */
+    padding: 0.8em; /* Padding para un mejor espaciado */
 }
 
 
 /* Para asegurar que las celdas de la fila total también tengan un buen padding */
 /* Especificidad: 0,1,3*/
 tbody tr:last-child th{
-    padding: 1rem; /* Padding para un mejor espaciado */
+    padding: 1em; /* Padding para un mejor espaciado */
 }
 
 /* Para asegurar que las celdas de la fila total también tengan un buen padding */
 /* Especificidad: 0,1,3*/
 tbody tr:last-child td {
-    padding: 1rem; /* Padding para un mejor espaciado */
+    padding: 1em; /* Padding para un mejor espaciado */
 }
 
 

@@ -68,7 +68,7 @@ header nav a.active{
 /* Estilos para la miga de navegación */
 /* Especificidad: 0,0,2 */
 header + p {
-    font-size: 0.8em; /* Usar rem para tamaño de fuente relativo */
+    font-size: 0.9em; /* Usar rem para tamaño de fuente relativo */
 }
 
 /* Estilos para el main */
@@ -120,21 +120,21 @@ h3 {
 /* Estilos para los párrafos */
 /* Especificidad: 0,0,1 */
 p {
-    font-size: 1em; /* Tamaño de fuente adaptable */
+    font-size: 1rem; /* Tamaño de fuente adaptable */
 }
 
 /* Estilos para listas no ordenadas */
 /* Especificidad: 0,0,1 */
 ul {
     list-style-type: square; /* Cambiar el tipo de viñeta a cuadrada */
-    font-size: 1.2em; /* Tamaño de fuente más grande */
+    font-size: 0.9rem; /* Tamaño de fuente más grande */
 }
 
 /* Estilos para listas ordenadas */
 /* Especificidad: 0,0,1 */
 ol {
     list-style-type: lower-roman; /* Cambiar a numeros romanos (i, ii, iii...) */
-    font-size: 1.2em; /* Tamaño de fuente más grande */
+    font-size: 0.9rem; /* Tamaño de fuente más grande */
 }
 
 
