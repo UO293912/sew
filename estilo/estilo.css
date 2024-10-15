@@ -22,7 +22,7 @@ header {
 /* Estilos para el título principal */
 /* Selector de tipo elemento - Especificidad: 0,0,1 */
 h1 {
-    font-size: 3em; /* Tamaño del título principal relativo */
+    font-size: 2em; /* Tamaño del título principal relativo */
 }
 
 /*Sobreescribir ajustes de a*/
@@ -106,14 +106,20 @@ aside section{
 /* Estilos para h2 */
 /* Especificidad: 0,0,1 */
 h2 {
-    font-size: 2.2em; /* Tamaño de fuente adaptable */
+    font-size: 1.7em; /* Tamaño de fuente adaptable */
 }
 
-/* Estilos para h3 dentro de main */
+/* Estilos para h3  */
 /* Especificidad: 0,0,1 */
 h3 {
     font-size: 1.5em; /* Tamaño de fuente adaptable */
     box-shadow: 0 0.2em 0.4em rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Estilos para h4  */
+/* Especificidad: 0,0,1 */
+h4{
+    font-size: 1.3em; /* Tamaño de fuente adaptable */
 }
 
 
