@@ -3,7 +3,7 @@
 
 /*  Especificidad: 0,0,1 */
 body {
-    margin: 1.25rem; /* Usar em para márgenes adaptables */
+    margin: 0.75rem; /* Usar em para márgenes adaptables */
     padding: 0em;
 }
 
@@ -12,8 +12,8 @@ header {
     display: flex; /* Activa Flexbox en el contenedor */
     justify-content: space-between; /* Distribuye los elementos a ambos extremos */
     align-items: center; /* Alinea verticalmente los elementos al centro */
-    padding: 1.5rem; /* Espaciado interno adaptable */
-    border-radius: 0.5rem; /* Esquinas redondeadas relativas */
+    padding: 1.2em; /* Espaciado interno adaptable */
+    border-radius: 0.5em; /* Esquinas redondeadas relativas */
 }
 
 /* Estilos para los enlaces del header*/
@@ -25,25 +25,25 @@ header nav a {
 /* Estilos para el main */
 /* Especificidad: 0,0,1 */
 main {
-    padding: 2rem; /* Usar rem para espaciado adaptable */
-    border-radius: 0.5rem; /* Esquinas redondeadas relativas */
-    margin-bottom: 2rem; /* Espaciado inferior adaptable */
+    padding: 1.5em; /* Usar rem para espaciado adaptable */
+    border-radius: 0.5em; /* Esquinas redondeadas relativas */
+    margin-bottom: 1.5em; /* Espaciado inferior adaptable */
 }
 
 /* Estilos para las secciones dentro de main */
 /* Especificidad: 0,0,2 */
 main section {
     margin-bottom: 2em; /* Espaciado inferior adaptable */
-    padding: 1.5em; /* Espaciado interno adaptable */
+    padding: 1.2em; /* Espaciado interno adaptable */
     border-radius: 0.5em; /* Esquinas redondeadas relativas */
 }  
 
 /* Estilos para el aside */
 /* Especificidad: 0,0,1 */
 aside {
-    padding: 1.5rem; /* Espaciado adaptable */
-    margin: 2rem 0; /* Margen adaptable */
-    border-radius: 0.5rem; /* Esquinas redondeadas relativas */
+    padding: 1.2em; /* Espaciado adaptable */
+    margin: 1.5em 0; /* Margen adaptable */
+    border-radius: 0.5em; /* Esquinas redondeadas relativas */
     width: 100%; /* Asegura que el aside ocupe el 100% del ancho */
     box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total */
 }
@@ -51,8 +51,8 @@ aside {
 /* Estilos para el aside section */
 /* Especificidad: 0,0,2 */
 aside section{
-    margin-bottom: 2em; /* Espaciado inferior adaptable */
-    padding: 1.5rem; /* Espaciado interno adaptable */
+    margin-bottom: 1.5em; /* Espaciado inferior adaptable */
+    padding: 1.5em; /* Espaciado interno adaptable */
     border-radius: 0.5em; /* Esquinas redondeadas relativas */
 }
 
