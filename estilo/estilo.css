@@ -1,0 +1,425 @@
+/* Nicolás Guerbartchouk Pérez UO293912 */
+
+/* Establecer la tipografía general en el body */
+/* Selector de tipo elemento - Especificidad: 0,0,1 */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem; /* Igual a 16px por defecto */
+    line-height: 1.5;
+    background-color: #f7f3e7; /* Beige claro como fondo general */
+    color: #000000; /* Color de texto negro */
+}
+
+/* Estilos para el header */
+/* Selector de tipo elemento - Especificidad: 0,0,1 */
+header {
+    background-color: #e7ded9; /* Cream para el header */
+    /* color: #000000; Heredado de body */
+    box-shadow: 0 0.1em 0.5em rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    border: 0.2em solid #4E4541; /* Borde en Taupe relativo */
+}
+
+/* Estilos para el título principal */
+/* Selector de tipo elemento - Especificidad: 0,0,1 */
+h1 {
+    font-size: 3em; /* Tamaño del título principal relativo */
+}
+
+/*Sobreescribir ajustes de a*/
+/*Especificidad del selector 0,0,2*/
+h1 a{
+    color: #000000; /*Sobreescribe el color de a*/
+    /* background-color: #E7DED9 heredado de header */
+    text-decoration: none; /* Sin subrayado */
+}
+
+/*Sobreescribir ajustes de a*/
+/*Especificidad del selector 0,1,2*/
+h1 a:hover {
+    text-decoration: none; /* Sin subrayado al pasar el mouse */
+    color: inherit; /* Hereda el color del h1, evitando el cambio de color */
+    /* background-color: #E7DED9 heredado de header*/
+}
+
+/*Sobreescribir ajustes de a*/
+/*Especificidad del selector 0,1,2*/
+h1 a:focus {
+    outline: none; /* Sin borde de enfoque */
+}
+
+
+
+/* Estilos para los enlaces del header al pasar el mouse */
+/* Especificidad: 0,1,3 */
+header nav a:hover {
+    text-decoration: underline; /* Subrayado al pasar el mouse */
+    color: #6C1E62; /* Black violet al pasar el mouse */
+    /* background-color: #E7DED9 heredado de header*/
+}
+
+/* Estilos para los enlaces del header al activarlos */
+/* Especificidad: 0,1,3 */
+header nav a.active{
+    color: #891E06; /* Color diferente para el enlace activo */
+    /* background-color: #E7DED9 heredado de header*/
+    text-decoration: underline; /* Subrayado al ser el lugar seleccionado */
+}
+
+/* Estilos para la miga de navegación */
+/* Especificidad: 0,0,2 */
+header + p {
+    font-size: 0.9em; /* Usar rem para tamaño de fuente relativo */
+}
+
+/* Estilos para el main */
+/* Especificidad: 0,0,1 */
+main {
+    background-color: #ffffff; /* Color de fondo blanco */
+    /* color: #000000 heredado de body */
+    border: 0.2em solid #625550; /* Borde en Taupe relativo */
+    box-shadow: 0 0.2em 0.5em rgba(0, 0, 0, 0.1); /* Sombra más notable */
+}
+
+/* Estilos para las secciones dentro de main */
+/* Especificidad: 0,0,2 */
+main section {
+    border: 0.2em solid #4E4541; /* Borde en Taupe relativo */
+    background-color: #e7ded9; /* Cream como fondo de las secciones */
+    /* color: #000000 heredado de main */
+}  
+
+/* Estilos para el aside */
+/* Especificidad: 0,0,1 */
+aside {
+    background-color: #ffffff; /* Color de fondo blanco */
+    /* color: #000000 heredado de body*/
+    border: 0.2em solid #625550; /* Borde en Taupe relativo */
+    box-shadow: 0 0.2em 0.5em rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Estilos para el aside section */
+/* Especificidad: 0,0,2 */
+aside section{
+    border: 0.2em solid #4E4541; /* Borde en Taupe relativo */
+}
+
+/* Estilos para h2 */
+/* Especificidad: 0,0,1 */
+h2 {
+    font-size: 1.7em; /* Tamaño de fuente adaptable */
+}
+
+/* Estilos para h3  */
+/* Especificidad: 0,0,1 */
+h3 {
+    font-size: 1.5em; /* Tamaño de fuente adaptable */
+    box-shadow: 0 0.1em 0.3em rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Estilos para h4  */
+/* Especificidad: 0,0,1 */
+h4{
+    font-size: 1.3em; /* Tamaño de fuente adaptable */
+}
+
+
+/* Estilos para los párrafos */
+/* Especificidad: 0,0,1 */
+p {
+    font-size: 1rem; /* Tamaño de fuente adaptable */
+}
+
+/* Estilos para listas no ordenadas */
+/* Especificidad: 0,0,1 */
+ul {
+    list-style-type: square; /* Cambiar el tipo de viñeta a cuadrada */
+    font-size: 0.9rem; /* Tamaño de fuente más grande */
+}
+
+/* Estilos para listas ordenadas */
+/* Especificidad: 0,0,1 */
+ol {
+    list-style-type: lower-roman; /* Cambiar a numeros romanos (i, ii, iii...) */
+    font-size: 0.9rem; /* Tamaño de fuente más grande */
+}
+
+
+/* Estilos para listas no ordenadas anidadas con listas ordenadas*/
+/* Especificidad: 0,0,2 */
+ul ol{
+    color: #2B2B2B;
+    /* background-color: #E7DED9 heredado de ul*/
+}
+
+
+/* Estilos para listas no ordenadas anidadas con listas ordenadas anidadas con listas no ordenadas */
+/* Especificidad: 0,0,3 */
+ul ol ul {
+    list-style-type: circle; /* Cambiar a circulos */
+    color: #244A4C;
+    /* background-color: #E7DED9 heredado de ul ol*/
+}
+
+/* Estilo general para la lista de definiciones */
+/* Especificidad: 0,0,1 */
+dl {
+    border: 0.2em solid #4E4541; /* Borde alrededor de la lista */
+}
+
+/* Estilo para los términos (dt) */
+/* Especificidad: 0,0,2 */
+dl dt {
+    font-weight: bold; /* Negrita */
+    color: #104D9E; /* Color azul para los términos */
+    background-color: #e8f0fe; /* Fondo azul claro */
+    border: 0.2em  solid #1a73e8; /* Borde azul */
+}
+
+/* Estilo para las definiciones (dd) */
+/* Especificidad: 0,0,2 */
+dl dd {
+    font-size: 1em; /* Tamaño de fuente normal */
+    color: #333; /* Color del texto */
+    /* background-color: #ffffff heredado de dl*/
+}
+
+
+
+/* Estilo para mejorar la accesibilidad */
+/* Especificidad: 0,0,2 */
+dd::before {
+    content: "Definición: "; /* Texto antes de la definición */
+    font-weight: bold; /* Negrita para el prefijo */
+    color: #000; /* Color negro para el prefijo */
+    /* background-color: #ffffff heredado de dl*/
+}
+
+
+/* Estilos para las celdas de la tabla */
+/* Especificidad: 0,0,1*/
+th, td {
+    border: 0.1em solid #000000; /* Borde de las celdas relativo */
+}
+
+/* Estilos para los encabezados de columna */
+/* Especificidad: 0,1,2*/
+thead th[scope="col"] {
+    background-color: #0056B3; /* Color de fondo azul para encabezados de columna */
+    color: white; /* Color de texto blanco */
+    font-weight: bold; /* Negrita para el texto */
+}
+
+/* Estilos para los encabezados de fila */
+/* Especificidad: 0,1,1*/
+th[scope="row"] {
+    background-color: #f2f2f2; /* Fondo gris claro para encabezados de fila */
+    color: #333; /* Color de texto normal */
+    font-weight: bold; /* Peso normal para el texto */
+}
+
+/* Color alternativo para las filas impares */
+/* Especificidad: 0,1,2*/
+tbody tr:nth-child(odd) {
+    background-color: #e0f7fa; /* Color de fondo para filas impares */
+    /* color: #333 heredado de th[scope="row"] para los th y #000 de td para los td*/
+}
+
+/* Color alternativo para las filas pares*/
+/* Especificidad: 0,1,2*/
+tbody tr:nth-child(even) {
+    background-color: #fff3e0; /* Color de fondo para filas pares */
+    /* color: #333 heredado de th[scope="row"] para los th y #000 de td para los td*/
+}
+
+/* Estilos para la fila total */
+/* Especificidad: 0,1,2*/
+tbody tr:last-child {
+    background-color: #006156; /* Color de fondo verde más oscuro para la fila total */
+    color: #ffffff; /* Color de texto blanco para mayor contraste */
+    font-weight: bold; /* Negrita para resaltar el texto */
+}
+
+/* Para asegurar que las celdas de la fila total también tengan un buen padding */
+/* Especificidad: 0,1,3*/
+tbody tr:last-child th{
+    font-size:1.6em;
+}
+
+/* Estilo del formulario */
+/* Especificidad: 0,0,1 */
+form {
+    background-color: #f9f9f9;
+    /* color: #000 heredado de body */
+    box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.1);
+    transition: width 0.3s ease;
+    
+}
+
+/* Estilo para las etiquetas (labels) */
+/* Especificidad: 0,0,2 */
+form label {
+    font-size: 1rem;
+}
+
+/* Estilo para los campos de texto (textarea) */
+/* Especificidad: 0,0,2 */
+form textarea {
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+/* Estilo para el botón de envío */
+/* Especificidad: 0,0,2 */
+form button {
+    background-color: #4CAF50;
+    /* color: #fff heredado de button */
+    border: none;
+    font-size: clamp(1rem, 2vw, 1.5em);  /* Tamaño de fuente adaptable con clamp() */
+    cursor: pointer;
+}
+
+/* Especificidad: 0,1,2 */
+form button:hover {
+    background-color: #45a049;
+    /* color: #fff heredado de button */
+}
+
+
+/* Estilos para el caption de la tabla */
+/* Especificidad: 0,0,1 */
+caption {
+    caption-side: top;
+    font-weight: bold;
+}
+
+
+/* Estilos para los enlaces */
+/* Especificidad: 0,0,1 */
+a {
+    color: #0707ac; /* Teal para los enlaces */
+    /* background-color: #E7DED9 o #f7f3e7 heredado de nav o p*/
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Estilos para los enlaces al pasar el mouse */
+/* Especificidad: 0,1,1 */
+a:hover {
+    text-decoration: underline;
+    color: #044B4E; /* Blue Green al pasar el mouse */
+    /* background-color: #E7DED9 o #f7f3e7 heredado de a*/
+}
+
+/* Estilos para enlaces externos */
+/* Especificidad: 0,1,1 */
+a[href^="http"], a[href^="https"] {
+    color: blue;
+    /* background-color: #E7DED9 o #f7f3e7 heredado de a*/
+}
+
+/* Estilos para enlaces externos al pasar el mouse */
+/* Especificidad: 0,2,1 */
+a[href^="http"]:hover, a[href^="https"]:hover {
+    color: #005200;
+    /* background-color: #E7DED9 o #f7f3e7 heredado de a*/
+}
+
+/* Estilos para enlaces externos activos */
+/* Especificidad: 0,2,1 */
+a[href^="http"]:active, a[href^="https"]:active {
+    color: #940000;
+    /* background-color: #E7DED9 o #f7f3e7 heredado de a*/
+}
+
+
+
+
+/* Asegúrate de que la imagen se ajuste correctamente dentro del contenedor */
+/* Especificidad: 0,0,5 */
+main section section > div > img{
+    width: 100%; /* La imagen ocupa todo el ancho del contenedor */
+    height: 100%; /* La imagen ocupa toda la altura del contenedor */
+    object-fit: contain; /* Asegura que la imagen cubra el área sin deformarse */
+}
+
+/* Contenedor del mapa dinámico con tamaño relativo */
+/* Especificidad: 0,0,4 */
+main section section > div{
+    width: 100%;  /* El mapa ocupará todo el ancho disponible */
+    height: 50vh; /* El mapa ocupará el 50% de la altura de la ventana */
+    margin: 0.5rem auto; /* Centrar el mapa horizontalmente con un margen superior e inferior */
+    border: 0.1rem solid #ccc; /* Borde para separar visualmente el mapa */
+    border-radius: 0.7rem; /* Bordes redondeados */
+    box-shadow: 0 0.25rem  0.35rem rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+    position: relative;
+}
+
+
+
+/* Estilos para el canvas (mejorados) */
+/* Especificidad: 0,0,1 */
+canvas {
+    border: 0.2em solid white;
+    background-color: #000;
+    /* color: #000 heredado de body */
+}
+
+/* Mejoras para botones */
+/* Especificidad: 0,0,1 */
+button {
+    font-size: 1rem;
+    background-color: #444;
+    color: white;
+}
+
+
+/* Especificidad: 0,1,1 */
+button:hover {
+    background-color: #666;
+    /* color: #fff heredado de button */
+    transform: scale(1.05);
+    
+}
+
+
+/* Diálogo mejorado */
+/* Especificidad: 0,0,1 */
+dialog {
+    background-color: rgba(0, 0, 0, 0.95);
+    color: white;
+    box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.5);
+}
+
+/* Especificidad: 0,0,2 */
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.7);
+    /* color: #fff heredado de dialog*/
+}
+
+
+/* Estilos para los párrafos dentro del modal */
+/* Especificidad: 0,0,2 */
+dialog p {
+    font-size: 1.2rem; /* Tamaño de fuente mayor */
+    line-height: 1.6; /* Mejor espaciado entre líneas */
+}
+
+
+/* Estilos para los botones dentro del modal (controles) */
+/* Especificidad: 0,0,3 */
+main > section > div > button {
+    font-size: 1rem; /* Ajustar tamaño de fuente */
+    background-color: #333; /* Fondo oscuro */
+    /* color: #fff heredado de button */
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+/* Estilos para los botones dentro del modal al pasar el mouse */
+/* Especificidad: 0,1,3 */
+main > section > div > button:hover {
+    background-color: #555; /* Fondo más claro al pasar el mouse */
+    /* color: #fff heredado de button */
+}
+
+
+

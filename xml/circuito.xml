@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE circuitos SYSTEM "circuito.dtd">
+<circuitos>
+    <circuito nombre="GILLES VILLENEUVE">
+        <medidas longitud="4361" anchuraMedia="11" unidad="metros" />
+        <fecha mes="Junio" dia="9" horaEspañaInicio="20:00 horas" />
+        <vueltas numero="70" />
+        <ubicacion localidad="Montreal" pais="Canada" />
+        <referencias>
+            <referencia nombre="wikipedia">
+                <url enlace="https://es.wikipedia.org/wiki/Circuito_Gilles_Villeneuve" />
+            </referencia>
+            <referencia nombre="DAZN">
+                <url
+                    enlace="https://www.dazn.com/es-ES/news/motor/gp-canada-f1-fecha-hora-canal-tv-donde-ver-online-gran-premio-mundial-formula-1/9ovg1fb71k8g1pm14jn6xzmav" />
+            </referencia>
+            <referencia nombre="MAPS">
+                <url enlace="https://maps.app.goo.gl/a7CRLzic5buWGbdLA" />
+            </referencia>
+        </referencias>
+        <fotografias>
+            <fotografia nombre="Circuito Panoramica">
+                <url enlace="Circuito_Gilles_Villeneuve.jpg" />
+            </fotografia>
+        </fotografias>
+        <videos>
+        </videos>
+        <coordenadasCentro longitud="-73.52307999433383" latitud="45.501330682631064" altitud="10" unidad="metros" />
+        <tramos unidad="metros">
+            <tramo longitud="-73.52257700820505" latitud="45.49977285206913" altitud="10">
+                <distancia medida="178" />
+                <sectorCircuito sector="0" />
+            </tramo>
+            <tramo longitud="-73.52254390363424" latitud="45.49903033857738" altitud="10">
+                <distancia medida="82" />
+                <sectorCircuito sector="0" />
+            </tramo>
+            <tramo longitud="-73.52274974842594" latitud="45.497858019625546" altitud="10">
+                <distancia medida="131" />
+                <sectorCircuito sector="0" />
+            </tramo>
+
+            <!-- Sector 1 -->
+            <tramo longitud="-73.52264317846918" latitud="45.49773352162852" altitud="10">
+                <distancia medida="17" />
+                <sectorCircuito sector="1" />
+            </tramo>
+            <tramo longitud="-73.52194623151038" latitud="45.497504379701155" altitud="10">
+                <distancia medida="58" />
+                <sectorCircuito sector="1" />
+            </tramo>
+
+            <!-- Sector 2 -->
+            <tramo longitud="-73.52195067192497" latitud="45.49727405675848" altitud="10">
+                <distancia medida="25" />
+                <sectorCircuito sector="2" />
+            </tramo>
+            <tramo longitud="-73.52219489474304" latitud="45.497090420225376" altitud="10">
+                <distancia medida="28" />
+                <sectorCircuito sector="2" />
+            </tramo>
+            <tramo longitud="-73.52267445954895" latitud="45.49708730773633" altitud="10">
+                <distancia medida="38" />
+                <sectorCircuito sector="2" />
+            </tramo>
+            <tramo longitud="-73.5238644907339" latitud="45.49734253124708" altitud="10">
+                <distancia medida="98" />
+                <sectorCircuito sector="2" />
+            </tramo>
+            <tramo longitud="-73.52482806076014" latitud="45.497778276037224" altitud="10">
+                <distancia medida="88" />
+                <sectorCircuito sector="2" />
+            </tramo>
+            <tramo longitud="-73.52611578107275" latitud="45.498659092696386" altitud="9">
+                <distancia medida="141" />
+                <sectorCircuito sector="2" />
+            </tramo>
+
+            <!-- Sector 3 -->
+            <tramo longitud="-73.52593942806492" latitud="45.498972958365705" altitud="10">
+                <distancia medida="35" />
+                <sectorCircuito sector="3" />
+            </tramo>
+
+            <!-- Sector 4 -->
+            <tramo longitud="-73.52597278200642" latitud="45.499171675371734" altitud="10">
+                <distancia medida="22" />
+                <sectorCircuito sector="4" />
+            </tramo>
+            <tramo longitud="-73.52700258494946" latitud="45.500089271287415" altitud="10">
+                <distancia medida="131" />
+                <sectorCircuito sector="4" />
+            </tramo>
+            <tramo longitud="-73.52775103358971" latitud="45.500487597655116" altitud="10">
+                <distancia medida="73" />
+                <sectorCircuito sector="4" />
+            </tramo>
+
+            <!-- Sector 5 -->
+            <tramo longitud="-73.52808874224705" latitud="45.500996064334494" altitud="9">
+                <distancia medida="61" />
+                <sectorCircuito sector="5" />
+            </tramo>
+            <tramo longitud="-73.52807206527577" latitud="45.50253020321235" altitud="10">
+                <distancia medida="169" />
+                <sectorCircuito sector="5" />
+            </tramo>
+            <tramo longitud="-73.52821960466852" latitud="45.50274223766913" altitud="10">
+                <distancia medida="26" />
+                <sectorCircuito sector="5" />
+            </tramo>
+
+            <!-- Sector 6 -->
+            <tramo longitud="-73.5284572515017" latitud="45.502812368467914" altitud="10">
+                <distancia medida="21" />
+                <sectorCircuito sector="6" />
+            </tramo>
+            <tramo longitud="-73.52894505289585" latitud="45.502742237672166" altitud="10">
+                <distancia medida="38" />
+                <sectorCircuito sector="6" />
+            </tramo>
+            <tramo longitud="-73.52927859231048" latitud="45.50284451172908" altitud="10">
+                <distancia medida="28" />
+                <sectorCircuito sector="6" />
+            </tramo>
+
+            <!-- Sector 7 -->
+            <tramo longitud="-73.52963297793865" latitud="45.50319224212078" altitud="9">
+                <distancia medida="46" />
+                <sectorCircuito sector="7" />
+            </tramo>
+            <tramo longitud="-73.5298164246165" latitud="45.503785424312106" altitud="10">
+                <distancia medida="69" />
+                <sectorCircuito sector="7" />
+            </tramo>
+            <tramo longitud="-73.52995178582553" latitud="45.5055032533496" altitud="9">
+                <distancia medida="192" />
+                <sectorCircuito sector="7" />
+            </tramo>
+            <tramo longitud="-73.52982347457373" latitud="45.50675577669449" altitud="10">
+                <distancia medida="138" />
+                <sectorCircuito sector="7" />
+            </tramo>
+            <tramo longitud="-73.52908450083744" latitud="45.508702490777964" altitud="10">
+                <distancia medida="225" />
+                <sectorCircuito sector="7" />
+            </tramo>
+
+            <!-- Sector 8 -->
+            <tramo longitud="-73.52865633749747" latitud="45.50871257062133" altitud="10">
+                <distancia medida="34" />
+                <sectorCircuito sector="8" />
+            </tramo>
+            <tramo longitud="-73.528313537952" latitud="45.50888874208481" altitud="10">
+                <distancia medida="31" />
+                <sectorCircuito sector="8" />
+            </tramo>
+
+            <!-- Sector 9 -->
+            <tramo longitud="-73.52813071152781" latitud="45.50906891688165" altitud="10">
+                <distancia medida="35" />
+                <sectorCircuito sector="9" />
+            </tramo>
+            <tramo longitud="-73.52760897851805" latitud="45.51055194459938" altitud="10">
+                <distancia medida="169" />
+                <sectorCircuito sector="9" />
+            </tramo>
+            <tramo longitud="-73.52731327912429" latitud="45.51168861079024" altitud="12">
+                <distancia medida="131" />
+                <sectorCircuito sector="9" />
+            </tramo>
+            <tramo longitud="-73.52735095729167" latitud="45.51275794211297" altitud="13">
+                <distancia medida="117" />
+                <sectorCircuito sector="9" />
+            </tramo>
+            <tramo longitud="-73.52774657804807" latitud="45.51415728327961" altitud="10">
+                <distancia medida="159" />
+                <sectorCircuito sector="9" />
+            </tramo>
+            <tramo longitud="-73.52766230118198" latitud="45.51427093969392" altitud="10">
+                <distancia medida="13" />
+                <sectorCircuito sector="9" />
+            </tramo>
+            <tramo longitud="-73.52755194698956" latitud="45.51430140249393" altitud="10">
+                <distancia medida="10" />
+                <sectorCircuito sector="9" />
+            </tramo>
+
+            <!-- Sector 10 -->
+            <tramo longitud="-73.52734795893691" latitud="45.51428968603436" altitud="10">
+                <distancia medida="15" />
+                <sectorCircuito sector="10" />
+            </tramo>
+            <tramo longitud="-73.52725766914313" latitud="45.51420064086176" altitud="10">
+                <distancia medida="12" />
+                <sectorCircuito sector="10" />
+            </tramo>
+            <tramo longitud="-73.52714397088428" latitud="45.51375775619971" altitud="10">
+                <distancia medida="50" />
+                <sectorCircuito sector="10" />
+            </tramo>
+            <tramo longitud="-73.52710049802067" latitud="45.51331018138309" altitud="10">
+                <distancia medida="50" />
+                <sectorCircuito sector="10" />
+            </tramo>
+
+            <!-- Sector 11 -->
+            <tramo longitud="-73.52689650996825" latitud="45.51298680049907" altitud="11">
+                <distancia medida="39" />
+                <sectorCircuito sector="11" />
+            </tramo>
+            <tramo longitud="-73.52675605917791" latitud="45.512869633056496" altitud="12">
+                <distancia medida="20" />
+                <sectorCircuito sector="11" />
+            </tramo>
+            <tramo longitud="-73.52526020617474" latitud="45.51008103551589" altitud="10">
+                <distancia medida="331" />
+                <sectorCircuito sector="11" />
+            </tramo>
+
+            <!-- Sector 12 -->
+            <tramo longitud="-73.52343817172185" latitud="45.50402899072942" altitud="10">
+                <distancia medida="689" />
+                <sectorCircuito sector="12" />
+            </tramo>
+
+            <!-- Sector 13 -->
+            <tramo longitud="-73.52378186257297" latitud="45.50378168789707" altitud="10">
+                <distancia medida="37" />
+                <sectorCircuito sector="13" />
+            </tramo>
+
+            <!-- Sector 14 -->
+            <tramo longitud="-73.52307999433383" latitud="45.501330682631064" altitud="10">
+                <distancia medida="277" />
+                <sectorCircuito sector="14" />
+            </tramo>
+
+        </tramos>
+    </circuito>
+</circuitos>

@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+    <!-- Datos que describen el documento -->
+    <meta name="author" content="Nicolás Guerbartchouk Pérez" />
+    <meta name="description" content="descripcion contenido" />
+    <meta name="keywords" content="aquí cada documento debe tener la lista de las palabras clave del mismo separadas por comas" />
+    <!-- Definir la ventana gráfica -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <title>F1 Desktop</title>
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <link rel="icon" href="multimedia/imagenes/f1Icon48px.ico" type="image/x-icon">
+    
+</head>
+
+<body>
+    <header>
+        <!-- Datos con el contenidos que aparece en el navegador -->
+        <h1><a href="index.html" title="Inicio">F1 Desktop</a> </h1>
+        <nav>
+            <a href="index.html" title="Inicio">Inicio</a>
+            <a href="piloto.html" title="Piloto">Piloto</a>
+            <a href="noticias.html" title="Noticias">Noticias</a>
+            <a href="calendario.html" title="Calendario">Calendario</a>
+            <a href="meteorologia.html" title="Meteorologia">Meteorologia</a>
+            <a href="circuito.html" title="Circuito">Circuito</a>
+            <a href="viajes.html" title="Viajes" class="active">Viajes</a>
+            <a href="juegos.html" title="Juegos">Juegos</a>
+        </nav>
+    </header>
+    <p>Estas en: <a href="index.html" title="Inicio"><u>Inicio</u></a> >> Viajes</p>
+    <h2>Viajes</h2>
+    <main>
+        <section>
+            <h3>Mapas</h3>
+            <section>
+                <h4>Mapa Estático</h4>
+                <div>
+                    <p>Cargando mapa...</p>
+                </div>
+            </section>
+            <section>
+                <h4>Mapa Dinámico</h4>
+                <div>
+                    <p>Cargando mapa...</p>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqZPeOuQ1u8WxdKbtmNOSK1Cdn8IQtwUk"></script>
+    <script src="js/viajes.js"></script>
+    <script>
+        // Crear una instancia de la clase Viajes y obtener la ubicación
+        const viajes = new Viajes();
+        viajes.obtenerPosicion();
+    </script>
+
+</body>
+
+</html>

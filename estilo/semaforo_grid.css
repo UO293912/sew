@@ -1,0 +1,216 @@
+/* Nicolás Guerbartchouk Pérez UO293912 */
+
+
+/*  Especificidad: 0,0,1 */
+body {
+    margin: 0.75rem; /* Usar em para márgenes adaptables */
+    padding: 0em;
+}
+
+/*  Especificidad: 0,0,1 */
+header {
+    display: flex; /* Activa Flexbox en el contenedor */
+    justify-content: space-between; /* Distribuye los elementos a ambos extremos */
+    align-items: center; /* Alinea verticalmente los elementos al centro */
+    padding: 1.2em; /* Espaciado interno adaptable */
+    border-radius: 0.5em; /* Esquinas redondeadas relativas */
+}
+
+/* Estilos para los enlaces del header*/
+/* Especificidad: 0,0,3 */
+header nav a {
+    margin: 0 1em; /* Espaciado relativo entre enlaces */
+}
+
+/* Estilos para el main */
+/* Especificidad: 0,0,1 */
+main {
+    padding: 1.5em; /* Usar rem para espaciado adaptable */
+    border-radius: 0.5em; /* Esquinas redondeadas relativas */
+    margin-bottom: 1.5em; /* Espaciado inferior adaptable */
+}
+
+/* Estilos para el contenedor principal */
+section {
+    width: 80%; 
+    aspect-ratio: 1/0.5;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Cuatro columnas para el semáforo */
+    grid-template-rows: repeat(4, 1fr); /* Cuatro filas para el semáforo */
+    align-items: center;
+    gap: 0.5rem; /* Espacio entre artículos */
+    padding: 1.5rem; 
+    border-radius: 0.5rem; 
+}
+
+/* Especificidad: 0,0,1 */
+h1 {
+    white-space: nowrap; /* Evita que el texto se divida en múltiples líneas */
+    margin-right: 1rem; 
+    text-align: center;
+    margin-top: 0.5rem; 
+    margin-bottom: 0.5rem; 
+    border-radius: 0.17rem; 
+}
+
+/* Estilos para h2 */
+h2 {
+    margin-bottom: 0.5rem;
+}
+
+/* Encabezado del juego */
+section h3 {
+    grid-column: span 4; /* Título ocupa toda la fila superior */
+    margin: 0; 
+    text-align: center;
+}
+
+/* Estilos para las luces del semáforo */
+section div {
+    width: 80%;
+    background-color: #0007;
+    /* Color #000 heredado de body*/
+    place-items: center;
+    border: 0.2em solid black;
+    aspect-ratio: 1; /* Mantiene la proporción cuadrada */
+    border-radius: 50%;
+    animation-fill-mode: forwards; /* Mantiene el estado final de la animación */
+    margin: auto; /* Centra el contenedor */
+    
+}
+
+/* Estilos para los botones */
+section button {
+    padding: 0.5vw; 
+    font-size: 1.5vw; 
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+}
+
+/* Estilos para los botones en estado deshabilitado */
+section button:disabled {
+    background-color: #cccccc; /* Color de fondo para indicar que está deshabilitado */
+    color: #666666; /* Color del texto deshabilitado */
+    border: 1px solid #999999; /* Borde deshabilitado */
+    cursor: not-allowed; /* Cambia el cursor al pasar sobre el botón */
+    opacity: 0.6; /* Reduce la opacidad para reforzar el efecto */
+}
+
+
+section button:first-of-type {
+    grid-column: 2; /* Botón en la segunda columna */
+}
+
+section button:nth-of-type(2) {
+    grid-column: 3; /* Botón en la tercera columna */
+}
+
+/* Ajustar el retraso en el encendido de cada luz */
+section.load div:nth-of-type(1) {
+    animation-name: lightOn;
+    animation-delay: 0s; /* Sin retraso para la primera luz */
+}
+
+section.load div:nth-of-type(2) {
+    animation-name: lightOn;
+    animation-delay: 0.5s; /* Retraso para la segunda luz */
+}
+
+section.load div:nth-of-type(3) {
+    animation-name: lightOn;
+    animation-delay: 1s; /* Retraso para la tercera luz */
+}
+
+section.load div:nth-of-type(4) {
+    animation-name: lightOn;
+    animation-delay: 1.5s; /* Retraso para la cuarta luz */
+}
+
+/* Estilos para las luces del semáforo en el estado apagado */
+section.unload div:nth-of-type(1) {
+    animation-name: out; 
+    animation-duration: 0.1s; 
+}
+
+section.unload div:nth-of-type(2) {
+    animation-name: out; 
+    animation-duration: 0.1s; 
+}
+
+ section.unload div:nth-of-type(3) {
+    animation-name: out; 
+    animation-duration: 0.1s; 
+}
+
+section.unload div:nth-of-type(4) {
+    animation-name: out; 
+    animation-duration: 0.1s; 
+}
+
+/* Estilos para el párrafo en la última fila de la cuadrícula */
+section p {
+    grid-column: span 4; /* Ocupa toda la fila */
+    text-align: center;   /* Alineación de texto al centro */
+}
+
+
+/* Animaciones */
+@keyframes lightOn {
+    from {
+        background-color: #0007; /* Color apagado */
+        /*Color #000 heredado de body*/
+    }
+    to {
+        background-color: red; /* Color encendido */
+        /*Redefinicion de background-color,antes #0007*/
+        /*Color #000 heredado de body*/
+    }
+}
+
+/* Animación para el apagado del semáforo */
+@keyframes out {
+    from {
+        background-color: red; /* Color inicial (encendido) */
+        /*Color #000 heredado de body*/
+    }
+    to {
+        background-color: #0007; /* Color final (apagado) */
+        /*Redefinicion de background-color,antes #red*/
+        /*Color #000 heredado de body*/
+    }
+}
+
+/* Responsividad: ajustes en dispositivos más pequeños */
+@media (max-width: 767px) {
+    /*  Especificidad: 0,0,1 */
+    header {
+        flex-direction: column; /* Cambia a una columna en pantallas pequeñas */
+        align-items: flex-start; /* Alinea los elementos al inicio */
+        /*Redefinicion de align-items, antes "center" */
+    }
+
+    /*  Especificidad: 0,0,1 */
+    h1{
+        white-space: wrap; /* Evita que el texto se divida en múltiples líneas */
+        /*Redefinicion de white-space, antes "nowrap */
+    }
+
+    /*  Especificidad: 0,0,2 */
+    header nav {
+        margin-top: 1rem; /* Espacio superior para la navegación */
+        width: 100%; /* Asegura que la navegación ocupe todo el ancho */
+    }
+
+    /*  Especificidad: 0,0,3 */
+    header nav ul {
+        flex-direction: column; /* Cambia a una columna en pantallas pequeñas */
+        align-items: flex-start; /* Alinea los enlaces al inicio */
+    }
+
+    /*  Especificidad: 0,0,3 */
+    header nav ul li {
+        margin-right: 0; /* Elimina el margen derecho en enlaces */
+        margin-bottom: 0.5rem; /* Añade espacio inferior entre enlaces */
+    }
+
+}
