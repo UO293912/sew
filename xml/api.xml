@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<instrucciones>
-    <parrafo>Bienvenido al juego. El objetivo es evitar los obstáculos y lograr la mayor puntuación posible.</parrafo>
-    <parrafo>Usa las teclas de flecha izquierda y derecha para mover el coche.</parrafo>
-    <parrafo>Los obstáculos caen desde la parte superior de la pantalla. Si un obstáculo choca con el coche, el juego termina.</parrafo>
-    <parrafo>La velocidad de los obstáculos aumenta a medida que avanzas en el juego.</parrafo>
-    <parrafo>Intenta evitar los obstáculos para conseguir una puntuación más alta.</parrafo>
-    <parrafo>Haz clic en "Reiniciar" para reiniciar el juego después de perder.</parrafo>
-</instrucciones>
