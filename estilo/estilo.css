@@ -419,6 +419,41 @@ main > section > div > button {
     transition: background-color 0.3s ease; /* Transición suave */
 }
 
+/* Especificidad: 0,0,1 */
+input {
+    content: attr(data-file-name); /* El nombre del archivo seleccionado */
+    white-space: wrap;
+    width: 100%; /* Ajusta el ancho al 100% del contenedor */
+  }
+/* Especificidad: 0,0,1 */
+  pre{
+    white-space: pre-wrap; /* Permite el ajuste de texto */
+    word-wrap: break-word;
+    word-break: normal;
+    width: 100%;
+    margin-top: 1.5%;
+    padding: 1.5%;
+    border: 0.1rem solid #ddd;
+    border-radius: 0.4rem;
+    box-sizing: border-box;
+  }
+  
+  @media (max-width: 768px) {
+    /* Especificidad: 0,0,1 */
+    pre {
+      font-size: 0.9rem; /* Ajusta el tamaño de la fuente en pantallas más pequeñas */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    /* Especificidad: 0,0,1 */
+    pre {
+      font-size: 0.8rem; /* Reduce más el tamaño de la fuente en pantallas aún más pequeñas */
+    }
+  }
+
+
+
 
 
 
