@@ -1,0 +1,29 @@
+
+/*  Especificidad: 0,0,3 */
+  section section h3 {
+    margin: 0 0 1rem;
+    font-size: 1.5rem; /* Tamaño de fuente relativo */
+  }
+  
+  /*  Especificidad: 0,0,3 */
+  section section p {
+    margin: 0.5rem 0;
+    font-size: 1rem; /* Un tamaño de fuente legible */
+  }
+  
+  /*  Especificidad: 0,0,1 */
+  button {
+    background-color: #2C632F;
+    /* color: #fff heredado de estilo.css > button */
+    margin-left: auto;
+    margin-right: auto;
+    transition: background-color 0.3s ease; /* Transición suave para el hover */
+
+  }
+  button:hover {
+    background-color: #2C632F; /* Un tono más oscuro para el hover */
+    /* color: #fff heredado de estilo.css > button */
+  }
+  
+ 
+  

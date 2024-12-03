@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:foto="uri:foto" elementFormDefault="qualified" targetNamespace="uri:foto" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="url">
+		<xs:complexType>
+			<xs:attribute name="enlace" type="xs:ENTITY" use="required" />
+			<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern
+							value="([a-zA-Z]:\\\\|\\\\)/?([^&lt;&gt;:&quot;|?*]+/)*([^&lt;&gt;:&quot;|?*]*)|file:///.+" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

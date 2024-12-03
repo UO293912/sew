@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.uniovi.es" targetNamespace="http://www.uniovi.es" elementFormDefault="qualified">
+	<xs:element name="circuitos">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="1" maxOccurs="unbounded" ref="circuito" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="circuito">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="medidas" />
+				<xs:element ref="fecha" />
+				<xs:element ref="vueltas" />
+				<xs:element ref="ubicacion" />
+				<xs:element ref="referencias" />
+				<xs:element ref="fotografias" />
+				<xs:element ref="videos" />
+				<xs:element ref="coordenadasCentro" />
+				<xs:element ref="tramos" />
+			</xs:sequence>
+			<xs:attribute name="nombre" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="medidas">
+		<xs:complexType>
+			<xs:attribute name="longitud" type="xs:int" use="required" /> <!-- Cambio de string a int-->
+			<xs:attribute name="anchuraMedia" type="xs:int" use="required" /> <!-- Cambio de string a int-->
+			<xs:attribute name="unidad" type="xs:string" use="required" /> 
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="fecha">
+		<xs:complexType>
+			<xs:attribute name="mes" type="xs:gMonth" use="required" /> <!-- Cambio de string a gMonth-->
+			<xs:attribute name="dia" type="xs:gDay" use="required" /> <!-- Cambio de string a gDay-->
+			<xs:attribute name="horaEspañaInicio" type="xs:time" use="required" /> <!-- Cambio de string a time-->
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="vueltas">
+		<xs:complexType>
+			<xs:attribute name="numero" type="xs:int" use="required" /> <!--Cambio de String a int-->
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ubicacion">
+		<xs:complexType>
+			<xs:attribute name="localidad" type="xs:string" use="required" />
+			<xs:attribute name="pais" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="referencias">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="3" maxOccurs="unbounded" ref="referencia" /> <!-- Cambio minOccurs de 1 a 3-->
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="referencia">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="url" />
+			</xs:sequence>
+			<xs:attribute name="nombre" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="url">
+		<xs:complexType>
+			<xs:attribute name="enlace" type="xs:anyURI" use="required" /> <!-- Cambio de de string a uri-->
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="fotografias">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="1" maxOccurs="5" ref="fotografia" /> <!-- Cambio de maxOccurs de unbound a 5-->
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="fotografia">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="url" />
+			</xs:sequence>
+			<xs:attribute name="nombre" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="videos">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="3" ref="video" /> <!-- Cambio de maxOccurs de unbound a 3-->
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="video">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="url" />
+			</xs:sequence>
+			<xs:attribute name="nombre" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="coordenadasCentro">
+		<xs:complexType>
+			<xs:attribute name="longitud" type="xs:double" use="required" /> <!-- Cambio de string a double-->
+			<xs:attribute name="latitud" type="xs:double" use="required" /> <!-- Cambio de string a double-->
+			<xs:attribute name="altitud" type="xs:int" use="required" /> <!-- Cambio de string a int-->
+			<xs:attribute name ="unidad" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="tramos">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="1" maxOccurs="unbounded" ref="tramo" />
+			</xs:sequence>
+			<xs:attribute name ="unidad" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="tramo">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="distancia" />
+				<xs:element ref="sectorCircuito" />
+			</xs:sequence>
+			<xs:attribute name="longitud" type="xs:float" use="required" /> <!-- Cambio de string a float-->
+			<xs:attribute name="latitud" type="xs:float" use="required" /> <!-- Cambio de string a float-->
+			<xs:attribute name="altitud" type="xs:int" use="required" /> <!-- Cambio de string a int-->
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="distancia">
+		<xs:complexType>
+			<xs:attribute name="medida" type="xs:int" use="required" /> <!-- Cambio de string a int-->
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="sectorCircuito">
+		<xs:complexType>
+			<xs:attribute name="sector" type="xs:int" use="required" /> <!-- Cambio de string a int-->
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
