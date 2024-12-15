@@ -122,16 +122,27 @@ class Carrusel {
     }
 
     init() {
-        document.addEventListener("DOMContentLoaded", () => {
-            const article = document.querySelector("article");
+        
+            const articleToFill = document.querySelector("main > section:nth-of-type(1) > article");
+            const article = document.querySelector("main > article:nth-of-type(1)"); 
+            const newArticle = document.createElement("article");
+
+            // Insertar el nuevo div como hermano inmediato después del div seleccionado
+            article.insertAdjacentElement("afterend", newArticle);
+            const h3 = document.querySelector("main > article:nth-of-type(2) + section > h3");
+            articleToFill.appendChild(h3);
+
+            const button = document.querySelector("main > article:nth-of-type(2) + section > button");
+            button.remove();
+
 
             if (this.carrouselImages.length > 0) {
-                this.createImages(article);
-                this.createNavigationButtons(article);
+                this.createImages(articleToFill);
+                this.createNavigationButtons(articleToFill);
             } else {
-                this.showNoImagesMessage(article);
+                this.showNoImagesMessage(articleToFill);
             }
-        });
+        
     }
 
     createImages(article) {

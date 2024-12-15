@@ -82,27 +82,27 @@ section div {
 
 /* Estilos para los botones */
 section button {
-    padding: 0.5vw; 
-    font-size: 1.5vw; 
+    padding: 1vw; 
+    font-size: 2vw; 
     cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+
 }
 
 /* Estilos para los botones en estado deshabilitado */
 section button:disabled {
     background-color: #cccccc; /* Color de fondo para indicar que está deshabilitado */
     color: #383838; /* Color del texto deshabilitado */
-    border: 1px solid #999999; /* Borde deshabilitado */
     cursor: not-allowed; /* Cambia el cursor al pasar sobre el botón */
     opacity: 0.6; /* Reduce la opacidad para reforzar el efecto */
 }
 
 
 section button:first-of-type {
-    grid-column: 2; /* Botón en la segunda columna */
+    grid-column: span 2; /* Botón en la segunda columna */
 }
 
 section button:nth-of-type(2) {
-    grid-column: 3; /* Botón en la tercera columna */
+    grid-column: span 2; /* Botón en la tercera columna */
 }
 
 /* Ajustar el retraso en el encendido de cada luz */

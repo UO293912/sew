@@ -213,7 +213,6 @@ caption {
 form {
     display: flex;
     flex-direction: column;
-    width: calc(50% + 10rem);  /* Calculamos el ancho en base a un 50% más un extra */
     max-width: 100%;
     box-sizing: border-box;
     padding: 2rem;
@@ -361,41 +360,39 @@ dialog button {
 
 /* Estilos para los controles */
 /* Especificidad: 0,0,3 */
-section canvas + div {
+section > canvas + article {
     display: flex; /* Usamos flexbox para organizar los botones */
     justify-content: center; /* Centrar los botones horizontalmente */
     align-items: center; /* Centrar los botones verticalmente */
 }
 
 /* Estilos para los botones dentro del modal (controles) */
-/* Especificidad: 0,0,3 */
-section div > button {
-    padding: 1rem 2rem; /* Aumentar el padding */
+/* Especificidad: 0,0,4 */
+section > canvas + article > button {
+    padding: 1em 2em; /* Aumentar el padding */
     font-size: 1rem; /* Ajustar tamaño de fuente */
-    margin: 1rem; /* Espacio alrededor de los botones */
+    margin: 0.5em; /* Espacio alrededor de los botones */
     cursor: pointer; /* Apunta al cursor */
     border-radius: 0.5em; /* Bordes redondeados */
 }
 
+
 /* Media Query para pantallas pequeñas (por ejemplo, menos de 600px de ancho) */
 @media (max-width: 600px) {
-    section canvas + div {
-        flex-direction: column; /* Cambiar la dirección de los botones a columna */
-        
-    }
 
-    section div > button {
-        font-size: 0.9rem; /* Reducir el tamaño del texto */
+    /* Especificidad: 0,0,4 */
+    section canvas + article > button{
+        font-size: 0.9em; /* Reducir el tamaño del texto */
         /*Redefinicion de font-size, antes 1rem */
     }
 }
 
 /* Media Query para pantallas aún más pequeñas (por ejemplo, menos de 400px de ancho) */
 @media (max-width: 400px) {
-    section div > button {
+    section canvas + article > button {
         font-size: 0.8rem; /* Reducir aún más el tamaño del texto */
         /*Redefinicion de font-size, antes 1rem */
-        padding: 0.6rem 1.2rem; /* Reducir aún más el tamaño de los botones */
+        padding: 0.6em 1.2em; /* Reducir aún más el tamaño de los botones */
         /*Redefinicion de pading, antes 0.8rem 1.5rem */
     }
 }
@@ -428,7 +425,7 @@ section div > button {
         align-items: flex-start; /* Alinea los enlaces al inicio */
     }
 
-    /*  Especificidad: 0,0,3 */
+    /*  Especificidad: 0,0,4 */
     header nav ul li {
         margin-right: 0; /* Elimina el margen derecho en enlaces */
         margin-bottom: 0.5rem; /* Añade espacio inferior entre enlaces */

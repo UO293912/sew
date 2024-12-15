@@ -136,6 +136,12 @@ ul {
     font-size: 0.9rem; /* Tamaño de fuente más grande */
 }
 
+li {
+    margin: 0.5rem 0; /* Espaciado entre elementos de la lista */
+}
+
+
+
 /* Estilos para listas ordenadas */
 /* Especificidad: 0,0,1 */
 ol {
@@ -359,11 +365,8 @@ main ol{
     list-style-type: decimal; /* Cambiar el tipo de viñeta a números decimales */
 }
 
-
-
-/* Estilos para el canvas (mejorados) */
-/* Especificidad: 0,0,1 */
-canvas {
+/* Especificidad: 0,0,4 */
+main> section > button + canvas {
     border: 0.2em solid white;
     background-color: #000;
     /* color: #000 heredado de body */
@@ -373,17 +376,24 @@ canvas {
 /* Especificidad: 0,0,1 */
 button {
     font-size: 1rem;
-    background-color: #444;
+    background-color: #2C632F;
     color: white;
+    transition: background-color 0.3s ease; /* Transición suave para el hover */
 }
 
 
 /* Especificidad: 0,1,1 */
 button:hover {
-    background-color: #595959;
+    background-color: #2C632F;
     /* color: #fff heredado de button */
-    transform: scale(1.05);
     
+}
+
+/* Especificidad: 0,1,1 */
+button:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
 }
 
 
@@ -419,6 +429,20 @@ main > section > div > button {
     transition: background-color 0.3s ease; /* Transición suave */
 }
 
+/* Estilos para los botones dentro del modal (controles) */
+/* Especificidad: 0,1,4 */
+main > section > div > button:hover {
+    background-color: #333; /* Fondo oscuro */
+    /* color: #fff heredado de button */
+}
+
+/* Estilos para los botones dentro del modal (controles) */
+/* Especificidad: 0,1,4 */
+main > section > div > button:active {
+    background-color: #2C632F; /* Fondo oscuro */
+    /* color: #fff heredado de button */
+}
+
 /* Especificidad: 0,0,1 */
 input {
     content: attr(data-file-name); /* El nombre del archivo seleccionado */
@@ -437,6 +461,76 @@ input {
     border-radius: 0.4rem;
     box-sizing: border-box;
   }
+
+  /* Especificidad: 0-0-4 */
+main > article + article + section  {
+    display: grid ;
+    place-items: center ;
+}
+
+/* Especificidad: 0-0-5 */
+main > article + article + section > article {
+    width: 100% ;
+    max-width: 100vh ;
+    height: 70vh ;
+    position: relative ;
+    overflow: hidden ; 
+    border-radius: 1em ;
+}
+
+/* Especificidad: 0-0-6 */
+main > article + article + section > article h3 {
+    text-align: center ;
+    margin-bottom: 0.5em ;
+}
+
+/* Especificidad: 0-0-6 */
+main > article + article + section > article img {
+    width: 100% ;
+    max-width: 100vh ;
+    height: 60vh ;
+    position: absolute ;
+    transition: all 0.5s ;
+    object-fit: cover ;
+    border-radius: 0.5em ;
+}
+
+/* Especificidad: 0-0-6 */
+main > article + article + section > article button {
+    position: absolute ;
+    width: 2em ;
+    height: 2em ;
+    padding: 0.5em ;
+    border: none ;
+    border-radius: 50% ;
+    z-index: 10 ;
+    cursor: pointer ;
+    background-color: #fff ;
+    color: #000;
+    font-size: 1.2em ;
+    display: flex ;
+    flex-direction: column ;
+    align-items: center ;
+    justify-content: center ;
+}
+
+/* Especificidad: 0-1-6 */
+main > article + article + section > article button:active {
+    transform: scale(1.1) ;
+}
+
+/* Especificidad: 0-1-6 */
+main > article + article + section > article button:nth-of-type(2) {
+    top: 55% ;
+    left: 2% ;
+}
+
+/* Especificidad: 0-1-6 */
+main > article + article + section > article button:nth-of-type(1) {
+    top: 55% ;
+    right: 2% ;
+}
+
   
   @media (max-width: 768px) {
     /* Especificidad: 0,0,1 */

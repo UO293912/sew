@@ -11,7 +11,6 @@
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
     <link rel="icon" href="multimedia/imagenes/f1Icon48px.ico" type="image/x-icon">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     
 </head>
 
@@ -25,7 +24,7 @@
             <a href="calendario.html" title="Calendario">Calendario</a>
             <a href="meteorologia.html" title="Meteorologia">Meteorologia</a>
             <a href="circuito.html" title="Circuito">Circuito</a>
-            <a href="php/viajes.php" title="Viajes">Viajes</a>
+            <a href="viajes.php" title="Viajes">Viajes</a>
             <a href="juegos.html" title="Juegos" class="active">Juegos</a>
         </nav>
     </header>
@@ -33,6 +32,13 @@
     <p>Estas en: <a href="index.html" title="Inicio"><u>Inicio</u></a> >> <a href="juegos.html" title="Juegos"><u>Juegos</u></a> >> Conducción </p>
 
     <main>
+        <h2>Menú de Juegos</h2>
+        <ul>
+            <li><a href="memoria.html">Juego de Memoria</a></li>
+            <li><a href="semaforo.php">Juego de Semáforo</a></li>
+            <li><a href="api.html">Juego de conducción</a></li>
+            <li><a href="php/Main.php">Datos de F1</a></li>
+        </ul>
         <section>
             <h2>Juego de conducción</h2>
             <p>Conduce tu coche y esquiva los obstáculos</p>
@@ -42,10 +48,10 @@
             <button>Instrucciones</button>
             <canvas ></canvas>
             
-            <div>
+            <article>
                 <button>Izquierda</button>
                 <button>Derecha</button>
-            </div>
+            </article>
 
             <dialog>
                 <h3>Instrucciones del juego</h3>
@@ -54,10 +60,26 @@
         </section>
     </main>
 
-    
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="js/api.js"></script>
-    <script >const game = new Game(document.querySelector("canvas"));
+    <script>
+        $init=true;
+        $game = null;
+         // Botón Iniciar
+         const startButton = document.querySelector("main > section > button:nth-of-type(1)");
+            if (startButton) {
+                startButton.addEventListener("click", ()=>{
+                    if($init){
+                        $game = new Game(document.querySelector("main > section > canvas"));
+                        $init=false;
+                    }
+                    $game.startGame();
+                    startButton.disabled = true;
+                });
+            }
+
     </script>
+
     
 </body>
 

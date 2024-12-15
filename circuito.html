@@ -14,7 +14,6 @@
     <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
     <link rel="icon" href="multimedia/imagenes/f1Icon48px.ico" type="image/x-icon">
-    <script src="js/circuito.js"></script>
     
 </head>
 
@@ -29,7 +28,7 @@
             <a href="calendario.html" title="Calendario">Calendario</a>
             <a href="meteorologia.html" title="Meteorologia">Meteorologia</a>
             <a href="circuito.html" title="Circuito" class="active">Circuito</a>
-            <a href="php/viajes.php" title="Viajes">Viajes</a>
+            <a href="viajes.php" title="Viajes">Viajes</a>
             <a href="juegos.html" title="Juegos">Juegos</a>
         </nav>
     </header>
@@ -37,28 +36,59 @@
     
     <main>
         <section>
-            <script >
-                const circuito = new Circuito();
-            </script>
             <h2>Circuito</h2>
             <section>
                 <h3>Información del Circuito</h3>
                 <p>Seleccione un archivo XML con la información del circuito</p>
-                <input type="file" accept=".xml" onchange="circuito.readInputInfoFile(this.files[0]);"/>
+                <input type="file" aria-label="Presione para seleccionar su archivo XML" accept=".xml" />
             </section>
             <section>
                 <h3>Planimetría del Circuito</h3>
                 <p>Seleccione un archivo kml con la planimetría del circuito</p>
-                <input type="file" accept=".kml" onchange="circuito.readInputPlaniFile(this.files[0]);"/>
+                <input type="file" aria-label="Presione para seleccionar su archivo kml" accept=".kml"/>
             </section>
             <section>
                 <h3>Altimetría del Circuito</h3>
                 <p>Seleccione un archivo svg con la altimetría del circuito</p>
-                <input type="file" accept=".svg" onchange="circuito.readInputAltiFile(this.files[0]);"/>
+                <input type="file" aria-label="Presione para seleccionar su archivo svg" accept=".svg"/>
             </section>
         </section>
     </main>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqZPeOuQ1u8WxdKbtmNOSK1Cdn8IQtwUk"></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqZPeOuQ1u8WxdKbtmNOSK1Cdn8IQtwUk"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/circuito.js"></script>
+    <script>
+        const circuito = new Circuito();
+        document.addEventListener("DOMContentLoaded", () => {
+            // Selecciona el contenedor principal
+            const main = document.querySelector('main');
+
+            // Selecciona los tres botones usando selectores dentro de la estructura
+            const botones = main.querySelectorAll('section > section > input[type="file"]');
+
+            // Itera sobre los botones y muestra sus detalles en la consola
+            botones.forEach((boton, index) => {
+                console.log(`Botón ${index + 1}:`, boton);
+            });
+
+            // Asignar los métodos específicos de `circuito` según el tipo de archivo
+            botones.forEach((boton) => {
+                if (boton.accept === ".xml") {
+                    boton.addEventListener('change', (event) => {
+                        circuito.readInputInfoFile(event.target.files[0]);
+                    });
+                } else if (boton.accept === ".kml") {
+                    boton.addEventListener('change', (event) => {
+                        circuito.readInputPlaniFile(event.target.files[0]);
+                    });
+                } else if (boton.accept === ".svg") {
+                    boton.addEventListener('change', (event) => {
+                        circuito.readInputAltiFile(event.target.files[0]);
+                    });
+                }
+            });
+        });
+
+    </script>
 </body>
 </html>

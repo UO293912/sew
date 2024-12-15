@@ -67,6 +67,7 @@ section h2 {
 }
 
 /* Estilos para la sección */
+/* Especificidad: 0,0,1 */
 section {
     display: flex;
     flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente fila */
@@ -80,19 +81,21 @@ section {
 
 /* Media queries para ajustar el diseño */
 @media (max-width: 800px) {
+    /* Especificidad: 0,0,1 */
     section {
         width: calc(60% + 15vw);
     }
 }
 
 @media (max-width: 500px) {
+    /* Especificidad: 0,0,1 */
     section {
         width: calc(70% + 20vw);
     }
 }
 
 /* Estilos para cada article (carta) */
-/* Especificidad: 0,0,2 */
+/* Especificidad: 0,0,1*/
 article {
     width: calc(25% - 0.25em);
     aspect-ratio: 1 / 1.35; /* Relación de aspecto para mantener forma rectangular */

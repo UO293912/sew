@@ -86,7 +86,6 @@ class Noticias {
             // Crear el formulario de añadir noticia
             const form = document.createElement('form');
 
-            // Crear los campos del formulario sin usar `id` o `class`
             form.innerHTML = `
                 <label for="titular">Titular:</label>
                 <textarea required></textarea><br><br>
@@ -121,3 +120,7 @@ class Noticias {
         }
     }
 }
+const noticias = new Noticias();
+document.querySelector('input[type="file"]').addEventListener('change', (event) => {
+    noticias.readInputFile(event.target.files);
+});

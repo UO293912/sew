@@ -1,0 +1,183 @@
+[circuitos]
+nombre,pais,ciudad,longitud,tipo,capacidad,descripcion
+Circuito de Silverstone,Reino Unido,Northamptonshire,5891,Circuito de carretera,150000,Circuito rápido y técnico.
+Circuito de Mónaco,Mónaco,Mónaco,3337,Urbano,100000,Circuito urbano estrecho y famoso.
+Circuito de Suzuka,Japón,Suzuka,5807,Circuito de carretera,150000,Circuito con una gran cantidad de curvas.
+Circuito de Monza,Italia,Monza,5793,Circuito de carretera,120000,Circuito con muchas rectas.
+Circuito de Spa-Francorchamps,Bélgica,Stavelot,7004,Circuito de carretera,70000,Circuito con muchas variaciones de altitud.
+Circuito de Interlagos,Brasil,São Paulo,4309,Circuito de carretera,70000,Circuito tradicional con muchas curvas.
+Circuito de Catalunya,España,Barcelona,4655,Circuito de carretera,100000,Circuito con muchas curvas de alta velocidad.
+Circuito de Bahrein,Bahrein,Sakhir,5412,Circuito de carretera,80000,Circuito en un desierto con muchas curvas rápidas.
+Circuito de Montreal,Canadá,Montreal,4361,Urbano,100000,Circuito en la ciudad de Montreal.
+Circuito de Melbourne,Australia,Melbourne,5303,Urbano,95000,Circuito en la ciudad con curvas técnicas.
+Circuito de Singapur,Singapur,Singapur,5063,Urbano,80000,Circuito nocturno espectacular.
+Circuito de Las Vegas,Estados Unidos,Las Vegas,6200,Urbano,70000,Circuito urbano en el Strip de Las Vegas.
+Circuito de Hockenheim,Alemania,Hockenheim,4574,Circuito de carretera,120000,Circuito técnico con rectas largas.
+Circuito de Zandvoort,Holanda,Zandvoort,4252,Circuito de carretera,105000,Circuito con muchas curvas rápidas y arena en la pista.
+Circuito de Imola,Italia,Imola,4909,Circuito de carretera,100000,Circuito técnico con historia en Fórmula 1.
+Circuito de Sepang,Malasia,Kuala Lumpur,5543,Circuito de carretera,80000,Circuito con clima impredecible.
+Circuito de Austin,Estados Unidos,Austin,5513,Circuito de carretera,120000,Circuito moderno
+
+[equipos]
+nombre,fundacion,pais,presupuesto
+Red Bull Racing,2005,Austria,500000000.00
+Mercedes,1954,Alemania,600000000.00
+Ferrari,1929,Italia,650000000.00
+McLaren,1963,Reino Unido,400000000.00
+Alpine,2005,Francia,300000000.00
+Aston Martin,2009,Reino Unido,350000000.00
+AlphaTauri,2006,Alemania,200000000.00
+Alfa Romeo Racing,2019,Suisse,150000000.00
+Haas F1 Team,2016,Estados Unidos,100000000.00
+Williams,1977,Reino Unido,120000000.00
+Andretti Autosport,1993,Estados Unidos,300000000.00
+Campos Racing,1998,España,150000000.00
+Force India,2008,India,180000000.00
+Toyota Racing,2002,Japón,250000000.00
+
+[pilotos]
+nombre,apellido,fecha_nacimiento,nacionalidad,id_equipo_actual
+Lewis,Hamilton,1985-01-07,Británica,2
+Max,Verstappen,1997-09-30,Holandesa,1
+Sebastian,Vettel,1987-07-03,Alemana,3
+Charles,Leclerc,1997-10-16,Monegasca,3
+Lando,Norris,1999-11-13,Británica,4
+Esteban,Ocón,1996-09-17,Francesa,5
+Fernando,Alonso,1981-07-29,Española,5
+Daniel,Ricciardo,1989-03-01,Australiana,6
+Kimi,Räikkönen,1979-10-17,Finnish,8
+Nicholas,Latifi,1995-06-29,Canadiense,9
+Oscar,Piastri,2001-04-06,Australiana,4
+Logan,Sargeant,2000-12-31,Estadounidense,9
+Mick,Schumacher,1999-03-22,Alemana,8
+Sergio,Pérez,1990-01-26,Mexicana,1
+George,Russell,1998-02-15,Británica,2
+Yuki,Tsunoda,2000-05-11,Japonesa,7
+Pierre,Gasly,1996-02-07,Francesa,7
+Alex,Albon,1996-03-23,Tailandesa,10
+Nyck,de Vries,1995-02-06,Holandesa,6
+Robert,Schwartzman,1999-09-16,Rusa,8
+Kevin,Magnussen,1992-10-05,Dinamarca,8
+Nico,Hülkenberg,1987-08-19,Alemana,8
+Valtteri,Bottas,1989-08-28,Finnish,8
+
+[temporadas]
+año,descripcion
+2024,Fórmula 1 temporada 2024
+2023,Fórmula 1 temporada 2023
+2022,Fórmula 1 temporada 2022
+
+
+[carreras]
+nombre,fecha,id_circuito,id_temporada
+Gran Premio de Australia,03-24,10,2
+Gran Premio de Bahrain,03-03,8,1
+Gran Premio de España,05-12,7,3
+Gran Premio de Mónaco,05-26,2,2
+Gran Premio de Canadá,06-09,9,1
+Gran Premio de Francia,06-23,5,3
+Gran Premio de Austria,07-07,1,2
+Gran Premio de Gran Bretaña,07-21,6,1
+Gran Premio de Alemania,07-28,4,3
+Gran Premio de Italia,09-01,3,2
+Gran Premio de Singapur,09-15,11,1
+Gran Premio de Las Vegas,11-16,12,3
+Gran Premio de Japón,10-06,13,2
+Gran Premio de Brasil,11-17,6,1
+Gran Premio de Holanda,09-08,14,3
+Gran Premio de Imola,04-21,15,2
+Gran Premio de Bélgica,07-30,5,1
+Gran Premio de Abu Dhabi,12-01,8,3
+
+[resultados]
+id_piloto,id_carrera,posicion,puntos,tiempo
+1,1,1,25.00,1:32:45
+2,1,2,18.00,1:33:00
+3,1,3,15.00,1:33:30
+4,1,4,12.00,1:34:00
+5,1,5,10.00,1:34:30
+1,2,1,25.00,1:35:00
+6,2,2,18.00,1:35:30
+7,2,3,15.00,1:36:00
+8,2,4,12.00,1:36:30
+9,2,5,10.00,1:37:00
+1,3,1,25.00,1:30:45
+2,3,2,18.00,1:31:00
+3,3,3,15.00,1:31:15
+4,3,4,12.00,1:31:45
+5,3,5,10.00,1:32:00
+1,4,1,25.00,1:40:10
+6,4,2,18.00,1:41:00
+7,4,3,15.00,1:41:20
+8,4,4,12.00,1:41:40
+9,4,5,10.00,1:42:10
+1,5,1,25.00,1:31:30
+2,5,2,18.00,1:32:10
+3,5,3,15.00,1:32:45
+4,5,4,12.00,1:33:30
+5,5,5,10.00,1:34:00
+6,6,1,25.00,1:38:15
+1,6,2,18.00,1:38:45
+7,6,3,15.00,1:39:15
+8,6,4,12.00,1:39:45
+9,6,5,10.00,1:40:15
+2,7,1,25.00,1:40:10
+3,7,2,18.00,1:40:50
+5,7,3,15.00,1:41:20
+6,7,4,12.00,1:41:40
+7,7,5,10.00,1:42:10
+4,8,1,25.00,1:29:15
+5,8,2,18.00,1:29:45
+6,8,3,15.00,1:30:15
+7,8,4,12.00,1:30:45
+8,8,5,10.00,1:31:15
+1,9,1,25.00,1:28:30
+2,9,2,18.00,1:29:00
+3,9,3,15.00,1:29:30
+4,9,4,12.00,1:30:00
+5,9,5,10.00,1:30:30
+6,10,1,25.00,1:27:45
+7,10,2,18.00,1:28:15
+8,10,3,15.00,1:28:45
+9,10,4,12.00,1:29:15
+1,10,5,10.00,1:29:45
+2,11,1,25.00,1:26:30
+3,11,2,18.00,1:27:00
+4,11,3,15.00,1:27:30
+5,11,4,12.00,1:28:00
+6,11,5,10.00,1:28:30
+7,12,1,25.00,1:25:45
+8,12,2,18.00,1:26:15
+9,12,3,15.00,1:26:45
+1,12,4,12.00,1:27:15
+2,12,5,10.00,1:27:45
+3,13,1,25.00,1:24:30
+4,13,2,18.00,1:25:00
+5,13,3,15.00,1:25:30
+6,13,4,12.00,1:26:00
+7,13,5,10.00,1:26:30
+8,14,1,25.00,1:23:45
+9,14,2,18.00,1:24:15
+1,14,3,15.00,1:24:45
+2,14,4,12.00,1:25:15
+3,14,5,10.00,1:25:45
+4,15,1,25.00,1:22:30
+5,15,2,18.00,1:23:00
+6,15,3,15.00,1:23:30
+7,15,4,12.00,1:24:00
+8,15,5,10.00,1:24:30
+1,16,1,25.00,1:21:45
+2,16,2,18.00,1:22:15
+3,16,3,15.00,1:22:45
+4,16,4,12.00,1:23:15
+5,16,5,10.00,1:23:45
+6,17,1,25.00,1:20:30
+7,17,2,18.00,1:21:00
+8,17,3,15.00,1:21:30
+9,17,4,12.00,1:22:00
+1,17,5,10.00,1:22:30
+2,18,1,25.00,1:19:45
+3,18,2,18.00,1:20:15
+4,18,3,15.00,1:20:45
+5,18,4,12.00,1:21:15
+6,18,5,10.00,1:21:45

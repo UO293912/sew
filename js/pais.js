@@ -61,8 +61,8 @@ class Pais {
     }
 
     mostrarInformacion() {
-        const section = document.createElement('section');
-        section.classList.add('informacion-pais'); // Añade clase para aplicar estilos
+        const section = document.querySelector('aside > section > section');
+
     
         section.innerHTML = `
             <h3>Información del País</h3>
@@ -73,9 +73,6 @@ class Pais {
             <h3>Coordenadas de la Línea de Meta del Circuito</h3>
             ${this.mostrarCoordenadasMeta()}
         `;
-    
-        const asideSection = document.querySelector('aside section');
-        asideSection.appendChild(section);
     }
 
     mostrarPrevisionMeteo() {
@@ -101,14 +98,16 @@ class Meteo {
             url: this.url,
             method: 'GET',
             success: (datos) => {
-                let pronosticos = "";
-                let simbolo = "";
+                let simboloSrc = "";
+                let simboloAlt = "";
                 let maxTemperatura = Number.MIN_VALUE;
                 let minTemperatura = Number.MAX_VALUE;
                 let precipitacion = 0;
                 let humedadCounter = 0;
                 let humedad = 0;
                 let fechaHoy = new Date().toISOString().split('T')[0]; // Fecha de hoy
+                const articles = $('main > section > article');
+                let dayIndex=0;
 
 
                 $('time', datos).each((index, element) => {
@@ -116,7 +115,7 @@ class Meteo {
                     let fecha = fechaHora.split('T')[0]; // Solo la fecha (YYYY-MM-DD)
                     let hora = fechaHora.split('T')[1];
                     
-                    // Asegurarse de que solo se capturan 5 días (incluyendo hoy)
+                    // Asegurarse de que solo se capturan 4 días (excluyendo hoy)
                     if ( fecha > fechaHoy) {
                         let temperaturaMax = parseFloat($(element).find('temperature').attr("max"));
                         let temperaturaMin = parseFloat($(element).find('temperature').attr("min"));
@@ -135,34 +134,36 @@ class Meteo {
                         if (hora === "15:00:00") {
                             let descripcion = $(element).find('symbol').attr("name");
                             let icono = $(element).find('symbol').attr("var");
-                            simbolo += `<img src="https://openweathermap.org/img/wn/${icono}.png" alt="${descripcion}" />`;
+                            simboloSrc = `https://openweathermap.org/img/wn/${icono}.png`;
+                            simboloAlt = `${descripcion}`;
                         }
 
                         // Cuando es 21:00, procesar el día completo
                         if (hora === "21:00:00") {
-                            pronosticos += `
-                                <article>
-                                    <h3>${fecha}</h3>
-                                    <p><strong>Temp. Máxima:</strong> ${maxTemperatura} °C</p>
-                                    <p><strong>Temp. Mínima:</strong> ${minTemperatura} °C</p>
-                                    <p><strong>Humedad:</strong> ${humedad.toFixed(2)} %</p>
-                                    <p><strong>Precipitación:</strong> ${precipitacion} mm</p>
-                                    ${simbolo}
-                                </article>
-                            `;
+                            const currentArticle = $(articles[dayIndex]); // Selecciona el artículo correspondiente
+
+                            // Actualiza solo los elementos específicos dentro del artículo
+                            currentArticle.find('h3').text(fecha); // Actualiza el título con la fecha
+                            currentArticle.find('p:nth-of-type(1)').html(`<strong>Temp. Máxima:</strong> ${maxTemperatura.toFixed(2)} °C`);
+                            currentArticle.find('p:nth-of-type(2)').html(`<strong>Temp. Mínima:</strong> ${minTemperatura.toFixed(2)} °C`);
+                            currentArticle.find('p:nth-of-type(3)').html(`<strong>Humedad:</strong> ${humedad.toFixed(2)} %`);
+                            currentArticle.find('p:nth-of-type(4)').html(`<strong>Precipitación:</strong> ${precipitacion} mm`);
+                            
+                            // Actualiza el símbolo
+                            currentArticle.find('img').attr('src', simboloSrc); 
+                            currentArticle.find('img').attr('alt', simboloAlt);
+
                             // Reiniciar variables para el siguiente día
                             maxTemperatura = Number.MIN_VALUE;
                             minTemperatura = Number.MAX_VALUE;
                             precipitacion = 0;
-                            simbolo = "";
                             humedad = 0;
                             humedadCounter = 0;
+                            dayIndex++;
                         }
                     }
                 });
 
-                // Mostrar los pronósticos en la página
-                $('main section').html(`<h2> Previsión meteorológica</h2> ${pronosticos}`);
             },
             error: () => {
                 alert("Hubo un problema al obtener los datos del pronóstico.");

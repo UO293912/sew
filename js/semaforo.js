@@ -189,6 +189,9 @@ class Semaforo {
         $container.children("p").remove();
         $container.children("h3").remove();
         $container.find("ol").remove();
+
+        const $p = $("<p>").text("Por favor, introduce tu nombre y apellidos.");
+        $container.append($p);
     
         // Crear el formulario con jQuery
         const $form = $("<form>", {
@@ -245,7 +248,6 @@ class Semaforo {
             $submitButton
         );
        
-    
         // Añadir el formulario al contenedor (sección)
         $container.append($form);
 

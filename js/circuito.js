@@ -1,16 +1,18 @@
+'use strict';
 class Circuito{
     constructor(){
-        
+
     }
 
 readInputInfoFile(file) {
     if (file) {
         var reader = new FileReader();
+
         // Limpiar solo el contenido generado dinámicamente, sin borrar la estructura original
         document.querySelector('main section section:nth-of-type(1)').innerHTML = 
         '<h3>Información del Circuito</h3>\
          <p>Seleccione un archivo XML con la información del circuito</p>\
-         <input type="file" accept=".xml" onchange="circuito.readInputInfoFile(this.files[0]);"/>';
+         <input type="file" accept=".xml" onchange="readInputInfoFile(this.files[0]);"/>';
 
         // Crear y mostrar los detalles del archivo
         var fileDetails = `
@@ -44,11 +46,12 @@ readInputInfoFile(file) {
 readInputPlaniFile(file) {
     if (file) {
         var reader = new FileReader();
+
         // Limpiar el contenido generado dinámicamente, sin borrar la estructura original
         document.querySelector('main section section:nth-of-type(2)').innerHTML = 
         '<h3>Planimetría del Circuito</h3>\
          <p>Seleccione un archivo KML con la planimetría del circuito</p>\
-         <input type="file" accept=".kml" onchange="circuito.readInputPlaniFile(this.files[0]);"/>';
+         <input type="file" accept=".kml" onchange="readInputPlaniFile(this.files[0]);"/>';
         
         // Crear y mostrar los detalles del archivo
         var fileDetails = ` 
@@ -60,7 +63,7 @@ readInputPlaniFile(file) {
         document.querySelector('main section section:nth-of-type(2)').insertAdjacentHTML('beforeend', fileDetails);
 
         // Leer el contenido del archivo KML
-        reader.onload = (e)=> {
+        reader.onload = function(e) {
             var content = e.target.result;
 
             // Parsear el contenido del archivo KML para obtener las coordenadas
@@ -82,9 +85,10 @@ readInputPlaniFile(file) {
                 console.error("No se encontraron coordenadas en el archivo KML.");
                 return;
             }
+
             // Inicializar el mapa con las coordenadas extraídas
             this.initPlanimetriaMap(allCoordinates);
-        };
+        }.bind(this);
 
         // Leer el archivo como texto
         reader.readAsText(file);
@@ -95,14 +99,14 @@ readInputPlaniFile(file) {
 initPlanimetriaMap(allCoordinates) {
     // Crear un div dinámicamente con un tamaño fijo
     var mapDiv = document.createElement('div');
-    mapDiv.style.backgroundColor = 'transparent'; // Fondo transparente
+    mapDiv.style.height = '70vh'; // Establecer altura fija para el mapa
+    mapDiv.style.width = '100%';  // Establecer ancho del 100%
     document.querySelector('main section section:nth-of-type(2)').appendChild(mapDiv); // Añadir el div al contenedor adecuado
 
     // Crear el mapa en el contenedor adecuado centrado en la primera coordenada
     var mapOptions = {
-        zoom: 14,
-        center: allCoordinates[0],
-        mapTypeId: google.maps.MapTypeId.ROADMAP, // Asegura el tipo de mapa correcto
+        zoom: 14, // El zoom puede cambiar más tarde según la preferencia
+        center: allCoordinates[0], // Coordenada inicial para centrar el mapa
     };
     var map = new google.maps.Map(mapDiv, mapOptions); // Crear el mapa
 
@@ -130,7 +134,7 @@ initPlanimetriaMap(allCoordinates) {
 
     // Crear una InfoWindow para la etiqueta de la línea de meta
     var infoWindow = new google.maps.InfoWindow({
-        content: '<div style="font-size:14px; font-weight:bold;">Línea de Meta</div>',
+        content: '<div>Línea de Meta</div>',
     });
 
     // Abrir la InfoWindow al crear el marcador
@@ -140,12 +144,13 @@ initPlanimetriaMap(allCoordinates) {
 readInputAltiFile(file) {
     if (file) {
         var reader = new FileReader();
+
         // Limpiar solo el contenido generado dinámicamente, sin borrar la estructura original
         var section = document.querySelector('main section section:nth-of-type(3)');
         section.innerHTML = `
             <h3>Altimetría del Circuito</h3>
             <p>Seleccione un archivo SVG con la altimetría del circuito:</p>
-            <input type="file" accept=".svg" onchange="circuito.readInputAltiFile(this.files[0]);" />
+            <input type="file" accept=".svg" onchange="readInputAltiFile(this.files[0]);" />
         `;
 
         // Crear y mostrar los detalles del archivo
@@ -167,7 +172,7 @@ readInputAltiFile(file) {
         section.appendChild(fileContentContainer);
 
         // Leer y mostrar el contenido del archivo SVG
-        reader.onload =  function(e) {
+        reader.onload = function (e) {
             var content = e.target.result;
             fileContentDiv.innerHTML = content; // Mostrar el contenido SVG en el contenedor <div>
         };

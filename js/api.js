@@ -4,6 +4,12 @@ class Game {
         this.canvas = canvas;
         this.ctx = canvas.getContext("2d");
 
+        const ratio = window.devicePixelRatio || 1;
+        this.canvas.width = this.canvas.offsetWidth * ratio;
+        this.canvas.height = this.canvas.offsetHeight * ratio;
+        this.ctx.scale(ratio, ratio);
+
+
         this.carWidthRatio = 0.1; // 10% del ancho del canvas
         this.carHeightRatio = 0.1; // 20% del alto del canvas
         this.enemyWidthRatio = 0.07; // 7% del ancho del canvas
@@ -20,8 +26,8 @@ class Game {
         this.score = 0;
         this.highScore = localStorage.getItem('highScore') || 0;
 
-        this.initialEnemySpeed = 0.7; // Reducir la velocidad inicial de los enemigos
-        this.initialCarSpeed = 2;  // Reducir la velocidad inicial del coche
+        this.initialEnemySpeed = 1.5; // Reducir la velocidad inicial de los enemigos
+        this.initialCarSpeed = 3;  // Reducir la velocidad inicial del coche
         this.enemySpeed = this.initialEnemySpeed;
         this.carSpeed = this.initialCarSpeed;
         this.free = true;
@@ -34,8 +40,7 @@ class Game {
         this.roadLines = [];
         this.lastEnemyY = 0;
         this.scoreThreshold = 6;
-        this.currentPow = 0;
-        this.maxEnemies = 1;
+        this.maxEnemies = 2;
 
 
         this.crashSound = new Audio('multimedia/audios/large-crash-with-cataiff-14490 (mp3cut.net).wav');
@@ -47,22 +52,59 @@ class Game {
 
         // Listener para redimensionar
         window.addEventListener("resize", () => {
-            this.updateSizes();
-            this.proximityRange = this.canvas.width * this.proximityRangeRatio; // Actualizar la proximidad al cambiar el tamaño
-            this.drawInitialState();
+            this.updateCanvasSize();
         });
     }
+
+    updateCanvasSize() {
+        const prevWidth = this.canvas.width;
+        const prevHeight = this.canvas.height;
+    
+        const ratio = window.devicePixelRatio || 1;
+        this.canvas.width = this.canvas.offsetWidth * ratio;
+        this.canvas.height = this.canvas.offsetHeight * ratio;
+        this.ctx.scale(ratio, ratio);
+    
+        this.updateSizes();
+        this.proximityRange = this.canvas.width * this.proximityRangeRatio;
+    
+        // Ajustar posiciones de elementos proporcionalmente
+        const widthRatio = this.canvas.width / prevWidth;
+        const heightRatio = this.canvas.height / prevHeight;
+    
+        this.carX *= widthRatio;
+        this.carY *= heightRatio;
+    
+        this.enemies = this.enemies.map(enemy => ({
+            x: enemy.x * widthRatio,
+            y: enemy.y * heightRatio
+        }));
+    
+        this.initializeRoadLines();
+        this.drawInitialState();
+    }
+    
+    
 
     updateSizes() {
         this.carWidth = this.canvas.width * this.carWidthRatio;
         this.carHeight = this.canvas.height * this.carHeightRatio;
         this.enemyWidth = this.canvas.width * this.enemyWidthRatio;
         this.enemyHeight = this.canvas.height * this.enemyHeightRatio;
+    
+        // Ajustar velocidad proporcional al tamaño vertical del canvas
+        const baseHeight = 500; // Altura base para referencia
+        const speedFactor = this.canvas.height / baseHeight;
+        this.initialEnemySpeed = 1.5 * speedFactor;
+        this.initialCarSpeed = 3 * speedFactor;
+    
+        this.enemySpeed = this.calculateSpeed(this.initialEnemySpeed, this.score);
+        this.carSpeed = this.initialCarSpeed;
 
-        // Ajustar posición del coche si se sale del canvas
-        this.carX = Math.max(0, Math.min(this.carX, this.canvas.width - this.carWidth));
-        this.carY = this.canvas.height - this.carHeight;
+        this.proximityRange = this.canvas.width * this.proximityRangeRatio;
     }
+    
+    
     
 
     calculateSpeed(baseSpeed, score) {
@@ -78,13 +120,7 @@ class Game {
         // Esperar a que el DOM esté completamente cargado
         window.addEventListener("keydown", this.keyDownHandler.bind(this));
         window.addEventListener("keyup", this.keyUpHandler.bind(this));
-        document.addEventListener("DOMContentLoaded", () => {
-            // Botón Iniciar
-            const startButton = document.querySelector("main > section > button:nth-of-type(1)");
-            if (startButton) {
-                startButton.addEventListener("click", this.startGame.bind(this));
-            }
-
+        
             // Botón Instrucciones
             const instructionsButton = document.querySelector("main > section > button:nth-of-type(2)");
             const dialog = document.querySelector("dialog");
@@ -115,8 +151,8 @@ class Game {
             }
 
             // Asegúrate de que los botones estén presentes
-            const leftButton = document.querySelector("main > section > canvas + div  button:nth-of-type(1)");
-            const rightButton = document.querySelector("main > section > canvas + div button:nth-of-type(2)");
+            const leftButton = document.querySelector("main > section > canvas + article > button:nth-of-type(1)");
+            const rightButton = document.querySelector("main > section > canvas + article > button:nth-of-type(2)");
 
             if (leftButton && rightButton) {
                 // Para el botón de la izquierda
@@ -164,7 +200,7 @@ class Game {
                     this.rightPressed = false;
                 });
             }
-        });
+  
     }
 
 
@@ -201,24 +237,36 @@ class Game {
 
     updateEnemies() {
         if (this.enemies.length === 0) {
-            this.createEnemy();
+            this.createEnemy(); // Crear el primer enemigo si no existen.
         }
+    
 
         for (let i = 0; i < this.enemies.length; i++) {
             this.enemies[i].y += this.enemySpeed;
-
+    
+            // Calcular progreso del enemigo más antiguo
+            if (i < this.maxEnemies - 1) {
+                this.progress = this.enemies[i].y / this.canvas.height;
+                if (this.progress >= 0.5&& this.enemies.length < this.maxEnemies) {
+                    this.createEnemy(); // Crear un nuevo enemigo
+                    console.log("Nuevo enemigo creado al 66% del recorrido del más antiguo.");
+                }
+            }
+    
+            // Eliminar enemigos que salgan del canvas
             if (this.enemies[i].y > this.canvas.height) {
                 this.enemies.splice(i, 1);
                 this.score++;
 
+    
                 // Incrementos suaves de velocidad
-                this.enemySpeed = this.initialEnemySpeed + (this.score / this.scoreThreshold) * 0.2;
-
+                this.enemySpeed = this.calculateSpeed(this.initialEnemySpeed, this.score);
                 console.log("Nueva velocidad de los enemigos:", this.enemySpeed);
-                this.createEnemy();
             }
         }
     }
+    
+    
 
 
     collisionDetection() {
@@ -227,7 +275,6 @@ class Game {
                 this.carY < this.enemies[i].y + this.enemyHeight && this.carY + this.carHeight > this.enemies[i].y) {
                 this.crashSound.play();
                 this.gameOver = true;
-                this.showRestartButton();
                 localStorage.setItem('highScore', Math.max(this.score, this.highScore));
 
                 if (this.score > this.highScore) {
@@ -240,6 +287,9 @@ class Game {
                         alert("¡Game Over! Puntuación: " + this.score);
                     }, 600);
                 }
+                setTimeout(() => {
+                    this.showRestartButton();
+                }, 3000);
             }
         }
     }
@@ -258,7 +308,7 @@ class Game {
 
     moveCar() {
         // Incrementa la velocidad del coche dependiendo del puntaje, suavemente
-        this.carSpeed = this.initialCarSpeed + (this.score / this.scoreThreshold) * 0.1;
+        this.carSpeed = this.initialCarSpeed + (this.score / this.scoreThreshold) * 0.6;
 
         // Mover a la derecha
         if (this.rightPressed && this.carX < this.canvas.width - this.carWidth) {
@@ -275,65 +325,64 @@ class Game {
 
 
     drawScore() {
-        // Tamaño de la fuente basado en el ancho del canvas, ajustable
-        const fontSize = Math.floor(this.canvas.width * 0.02); // 5% del ancho del canvas
+        // Tamaño de la fuente basado en el ancho del canvas
+        const fontSize = this.canvas.width * 0.04; // 4% del ancho del canvas
         this.ctx.font = `${fontSize}px Arial`;
-        this.ctx.textBaseline = "top";  // Asegura que el texto se dibuje desde la parte superior
-    
-        // Espaciado entre líneas basado en el tamaño de la fuente
-        const lineHeight = fontSize * 1.2;
-    
-        // Establecer el color de la fuente (puedes cambiarlo según lo necesites)
-        this.ctx.fillStyle = "#FFFFFF";
-    
-        // Posición inicial para el texto (ajustado con márgenes)
-        const x = 10;
-        let y = 10; // Comienza en la parte superior
-    
-        // Dibuja la puntuación
-        this.ctx.fillText(`Puntuación: ${this.score}`, x, y);
-        y += lineHeight; // Salto de línea
-    
-        // Dibuja la puntuación más alta
-        this.ctx.fillText(`Puntuación más alta: ${this.highScore}`, x, y);
+        this.ctx.fillStyle = "white";
+        this.ctx.textAlign = "left";
+        this.ctx.fillText(`Puntuación: ${this.score}`, 10, fontSize + 10);
+        
+        // Mostrar el récord
+        this.ctx.textAlign = "right";
+        this.ctx.fillText(`Récord: ${this.highScore}`, this.canvas.width - 10, fontSize + 10);
     }
+    
     
     
 
 
 
     initializeRoadLines() {
-        const totalLines = Math.ceil(this.canvas.height / (this.lineLength + this.gap)) + 1;
-        for (let i = 0; i < totalLines; i++) {
-            this.roadLines.push(-i * (this.lineLength + this.gap));
+        // Calcular cuántas líneas de la carretera caben en el canvas
+        const numLines = Math.ceil(this.canvas.height / (this.lineLength + this.gap));
+    
+        // Crear las líneas ajustadas al tamaño del canvas
+        this.roadLines = [];
+        for (let i = 0; i < numLines; i++) {
+            const yPosition = i * (this.lineLength + this.gap);
+            this.roadLines.push({
+                x: this.canvas.width / 2 - this.lineWidth / 2,
+                y: yPosition
+            });
         }
     }
-
+    
     drawRoadLines() {
         this.ctx.strokeStyle = "white";
         this.ctx.lineWidth = this.lineWidth;
         this.ctx.setLineDash([this.lineLength, this.lineLength + this.gap]);
-
+    
         for (let i = 0; i < this.roadLines.length; i++) {
-            const y = this.roadLines[i];
+            const y = this.roadLines[i].y; // Acceder correctamente a la propiedad `y`
             this.ctx.beginPath();
             this.ctx.moveTo(this.canvas.width / 2, y);
             this.ctx.lineTo(this.canvas.width / 2, y + this.lineLength);
             this.ctx.stroke();
         }
-
-        this.ctx.setLineDash([]);
+    
+        this.ctx.setLineDash([]); // Restablecer el estilo de la línea
     }
-
+    
     updateRoadLines() {
         for (let i = 0; i < this.roadLines.length; i++) {
-            this.roadLines[i] += this.enemySpeed;
-
-            if (this.roadLines[i] > this.canvas.height) {
-                this.roadLines[i] = -this.lineLength;
+            this.roadLines[i].y += this.enemySpeed; // Actualizar la propiedad `y`
+    
+            if (this.roadLines[i].y > this.canvas.height) {
+                this.roadLines[i].y = -this.lineLength;
             }
         }
     }
+    
 
     drawInitialState() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -361,6 +410,7 @@ class Game {
     showRestartButton() {
         const startButton = document.querySelector("main > section > button:nth-of-type(1)");
         startButton.textContent = "Reiniciar";
+        startButton.disabled = false;
 
     }
 
@@ -372,6 +422,9 @@ class Game {
         this.carX = this.canvas.width / 2 - this.carWidth / 2;
         this.enemies = [];
         this.roadLines = [];
+        this.progressSpawn = 1;
+        this.progress = 1;
+        this.maxEnemies = 2;
         this.initializeRoadLines();
         this.drawInitialState();
         this.engineSound.play();
@@ -384,6 +437,7 @@ class Game {
 
     }
 }
+
 
 
 

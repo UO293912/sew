@@ -16,8 +16,6 @@
     <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
     <link rel="stylesheet" type="text/css" href="estilo/article_elements.css" />
     <link rel="icon" href="multimedia/imagenes/f1Icon48px.ico" type="image/x-icon">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="js/noticias.js"></script>
 </head>
 
 <body>
@@ -32,21 +30,19 @@
             <a href="calendario.html" title="Calendario">Calendario</a>
             <a href="meteorologia.html" title="Meteorologia">Meteorologia</a>
             <a href="circuito.html" title="Circuito">Circuito</a>
-            <a href="php/viajes.php" title="Viajes">Viajes</a>
+            <a href="viajes.php" title="Viajes">Viajes</a>
             <a href="juegos.html" title="Juegos">Juegos</a>
         </nav>
     </header>
     <p>Estas en: <a href="index.html" title="Inicio"><u>Inicio</u></a> >> Noticias</p>
     <main>
-
         <section>
             <h2>Noticias </h2>
-            <script>
-                const noticias = new Noticias();
-            </script>
-            <p><input type="file" accept=".txt" onchange="noticias.readInputFile(this.files);"></p>
+            <p><input type="file" accept=".txt" aria-label="Seleccionar archivo de noticias de su ordenador"></p>
         </section>
     </main>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/noticias.js"></script>
 </body>
 
 </html>
