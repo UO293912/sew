@@ -4,10 +4,8 @@ class Game {
         this.canvas = canvas;
         this.ctx = canvas.getContext("2d");
 
-        const ratio = window.devicePixelRatio || 1;
-        this.canvas.width = this.canvas.offsetWidth * ratio;
-        this.canvas.height = this.canvas.offsetHeight * ratio;
-        this.ctx.scale(ratio, ratio);
+        this.canvas.width = this.canvas.offsetWidth;
+        this.canvas.height = this.canvas.offsetHeight;
 
 
         this.carWidthRatio = 0.1; // 10% del ancho del canvas
@@ -26,11 +24,11 @@ class Game {
         this.score = 0;
         this.highScore = localStorage.getItem('highScore') || 0;
 
-        this.initialEnemySpeed = 1.5; // Reducir la velocidad inicial de los enemigos
-        this.initialCarSpeed = 3;  // Reducir la velocidad inicial del coche
-        this.enemySpeed = this.initialEnemySpeed;
-        this.carSpeed = this.initialCarSpeed;
-        this.free = true;
+        // Ajustar velocidad proporcional al tamaño vertical del canvas
+        this.baseHeight = 700; // Altura base para referencia
+        this.speedFactor = this.canvas.height / this.baseHeight;
+        this.initialEnemySpeed = 1.5 * this.speedFactor;
+        this.initialCarSpeed = 3 * this.speedFactor;
 
         this.lineWidth = 12;
         this.lineLength = 40;
@@ -60,10 +58,9 @@ class Game {
         const prevWidth = this.canvas.width;
         const prevHeight = this.canvas.height;
     
-        const ratio = window.devicePixelRatio || 1;
-        this.canvas.width = this.canvas.offsetWidth * ratio;
-        this.canvas.height = this.canvas.offsetHeight * ratio;
-        this.ctx.scale(ratio, ratio);
+
+        this.canvas.width = this.canvas.offsetWidth ;
+        this.canvas.height = this.canvas.offsetHeight ;
     
         this.updateSizes();
         this.proximityRange = this.canvas.width * this.proximityRangeRatio;
@@ -93,10 +90,9 @@ class Game {
         this.enemyHeight = this.canvas.height * this.enemyHeightRatio;
     
         // Ajustar velocidad proporcional al tamaño vertical del canvas
-        const baseHeight = 500; // Altura base para referencia
-        const speedFactor = this.canvas.height / baseHeight;
-        this.initialEnemySpeed = 1.5 * speedFactor;
-        this.initialCarSpeed = 3 * speedFactor;
+        this.speedFactor = this.canvas.height / this.baseHeight;
+        this.initialEnemySpeed = 1.5 * this.speedFactor;
+        this.initialCarSpeed = 3 * this.speedFactor;
     
         this.enemySpeed = this.calculateSpeed(this.initialEnemySpeed, this.score);
         this.carSpeed = this.initialCarSpeed;
@@ -109,7 +105,7 @@ class Game {
 
     calculateSpeed(baseSpeed, score) {
         // Ajusta los multiplicadores y constantes según tu preferencia
-        const growthFactor = 0.1; // Factor de crecimiento para controlar el aumento
+        const growthFactor = 0.4*(this.canvas.height/(this.baseHeight*3)); // Factor de crecimiento para controlar el aumento
         const smoothness = 1; // Ajusta este valor para un crecimiento más lento o rápido
         return baseSpeed + growthFactor * Math.pow(score, smoothness);
     }
@@ -308,7 +304,7 @@ class Game {
 
     moveCar() {
         // Incrementa la velocidad del coche dependiendo del puntaje, suavemente
-        this.carSpeed = this.initialCarSpeed + (this.score / this.scoreThreshold) * 0.6;
+        this.carSpeed = this.calculateSpeed(this.initialCarSpeed, this.score);
 
         // Mover a la derecha
         if (this.rightPressed && this.carX < this.canvas.width - this.carWidth) {
