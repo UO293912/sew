@@ -9,10 +9,12 @@ readInputInfoFile(file) {
         var reader = new FileReader();
 
         // Limpiar solo el contenido generado dinámicamente, sin borrar la estructura original
-        document.querySelector('main section section:nth-of-type(1)').innerHTML = 
-        '<h3>Información del Circuito</h3>\
+        var section = document.querySelector('main section section:nth-of-type(1)');
+        section.innerHTML = 
+        `<h3>Información del Circuito</h3>\
          <p>Seleccione un archivo XML con la información del circuito</p>\
-         <input type="file" accept=".xml" onchange="readInputInfoFile(this.files[0]);"/>';
+         <input type="file" accept=".xml" aria-label="Presione para seleccionar su archivo XML"/>`;
+        section.querySelector('input[type="file"]').addEventListener('change', (event) => { this.readInputInfoFile(event.target.files[0]) });
 
         // Crear y mostrar los detalles del archivo
         var fileDetails = `
@@ -48,10 +50,12 @@ readInputPlaniFile(file) {
         var reader = new FileReader();
 
         // Limpiar el contenido generado dinámicamente, sin borrar la estructura original
-        document.querySelector('main section section:nth-of-type(2)').innerHTML = 
-        '<h3>Planimetría del Circuito</h3>\
+        var section = document.querySelector('main section section:nth-of-type(2)');
+        section.innerHTML = 
+        `<h3>Planimetría del Circuito</h3>\
          <p>Seleccione un archivo KML con la planimetría del circuito</p>\
-         <input type="file" accept=".kml" onchange="readInputPlaniFile(this.files[0]);"/>';
+         <input type="file" accept=".kml" aria-label="Presione para seleccionar su archivo kml"/>`;
+            section.querySelector('input[type="file"]').addEventListener('change', (event) => { this.readInputPlaniFile(event.target.files[0]) });
         
         // Crear y mostrar los detalles del archivo
         var fileDetails = ` 
@@ -150,8 +154,9 @@ readInputAltiFile(file) {
         section.innerHTML = `
             <h3>Altimetría del Circuito</h3>
             <p>Seleccione un archivo SVG con la altimetría del circuito:</p>
-            <input type="file" accept=".svg" onchange="readInputAltiFile(this.files[0]);" />
+            <input type="file" accept=".svg" aria-label="Presione para seleccionar su archivo svg" />
         `;
+        section.querySelector('input[type="file"]').addEventListener('change', (event) => { this.readInputAltiFile(event.target.files[0]) });
 
         // Crear y mostrar los detalles del archivo
         var fileDetails = `

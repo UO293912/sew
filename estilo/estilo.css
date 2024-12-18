@@ -375,7 +375,7 @@ main> section > button + canvas {
 /* Mejoras para botones */
 /* Especificidad: 0,0,1 */
 button {
-    font-size: 1rem;
+    font-size: calc(0.5em + 1vw); /* Tamaño de fuente adaptable */
     background-color: #2C632F;
     color: white;
     transition: background-color 0.3s ease; /* Transición suave para el hover */
@@ -462,30 +462,28 @@ input {
     box-sizing: border-box;
   }
 
-  /* Especificidad: 0-0-4 */
-main > article + article + section  {
-    display: grid ;
-    place-items: center ;
-}
+
 
 /* Especificidad: 0-0-5 */
-main > article + article + section > article {
+main > article  {
     width: 100% ;
     max-width: 100vh ;
     height: 70vh ;
     position: relative ;
     overflow: hidden ; 
     border-radius: 1em ;
+    margin: 0 auto;              /* Centra el article horizontalmente */
+    margin-bottom: 1em;
 }
 
 /* Especificidad: 0-0-6 */
-main > article + article + section > article h3 {
+main > article > h3 {
     text-align: center ;
     margin-bottom: 0.5em ;
 }
 
 /* Especificidad: 0-0-6 */
-main > article + article + section > article img {
+main > article > img {
     width: 100% ;
     max-width: 100vh ;
     height: 60vh ;
@@ -496,7 +494,7 @@ main > article + article + section > article img {
 }
 
 /* Especificidad: 0-0-6 */
-main > article + article + section > article button {
+main > article > button {
     position: absolute ;
     width: 2em ;
     height: 2em ;
@@ -515,21 +513,22 @@ main > article + article + section > article button {
 }
 
 /* Especificidad: 0-1-6 */
-main > article + article + section > article button:active {
+main > article > button:active {
     transform: scale(1.1) ;
 }
 
 /* Especificidad: 0-1-6 */
-main > article + article + section > article button:nth-of-type(2) {
+main > article > button:nth-of-type(2) {
     top: 55% ;
     left: 2% ;
 }
 
 /* Especificidad: 0-1-6 */
-main > article + article + section > article button:nth-of-type(1) {
+main > article > button:nth-of-type(1) {
     top: 55% ;
     right: 2% ;
 }
+
 
   
   @media (max-width: 768px) {

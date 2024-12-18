@@ -68,35 +68,91 @@ class Memoria {
 
     // Método para crear las tarjetas en el DOM
     createElements() {
+        this.finish = false;
         this.container= document.querySelector('main'); // Selecciona el contenedor para las tarjetas
         this.tablero = document.createElement('section'); // Crear un elemento section
         this.header = document.createElement('h2');
+        this.subHeader = document.createElement('p');
+        this.iniciarJuego = document.createElement('button');
+        this.instrucciones = document.createElement('dialog');
+        this.titleInstrucciones = document.createElement('h3');
+        this.textInstrucciones = document.createElement('p');
+        this.cerrarInstrucciones = document.createElement('button');
+        this.abrirInstrucciones = document.createElement('button');
+        this.modalGanar = document.createElement('dialog');
+        this.titleGanar = document.createElement('h3');
+        this.textGanar = document.createElement('p');
+        this.cerrarGanar = document.createElement('button');
+        this.abrirInstrucciones.textContent = 'Ver Instrucciones';
+        this.titleInstrucciones.textContent = 'Instrucciones del juego';
+        this.textInstrucciones.textContent = 'Haciendo click sobre las tarjetas del tablero,\
+                                              se darán la vuelta para mostrar el logo de un equipo\
+                                              de Fórmula 1. El objetivo del juego es encontrar las \
+                                              parejas de tarjetas iguales. ¡Buena suerte!';
+        this.cerrarInstrucciones.textContent = 'Cerrar';
+        this.titleGanar.textContent = '¡Felicidades!';
+        this.textGanar.textContent = '¡Has encontrado todas las parejas!';
+        this.cerrarGanar.textContent = 'Cerrar';
         this.header.textContent = 'Juego de memoria';
+        this.subHeader.textContent = 'Haz clic en una carta para darle vuelta y encontrar las parejas';
+        this.iniciarJuego.textContent = 'Iniciar juego de memoria';
+        this.modalGanar.appendChild(this.titleGanar);
+        this.modalGanar.appendChild(this.textGanar);
+        this.modalGanar.appendChild(this.cerrarGanar);
+        this.instrucciones.appendChild(this.titleInstrucciones);
+        this.instrucciones.appendChild(this.textInstrucciones);
+        this.instrucciones.appendChild(this.cerrarInstrucciones);
         this.tablero.appendChild(this.header);
-        this.elements.forEach(element => {
-            const card = document.createElement('article');
-            card.setAttribute('data-element', element.element);
-            card.setAttribute('data-state', 'unflipped'); // Estado inicial de la tarjeta
-
-            const header = document.createElement('h3');
-            header.textContent = 'Tarjeta de memoria';
-            card.appendChild(header);
-
-            const img = document.createElement('img');
-            img.setAttribute('src', element.source);
-            img.setAttribute('alt', element.element);
-            card.appendChild(img);
-
-            this.tablero.appendChild(card); // Añadir la tarjeta al tablero
+        this.tablero.appendChild(this.subHeader);
+        this.tablero.appendChild(this.instrucciones);
+        this.tablero.appendChild(this.abrirInstrucciones);
+        this.tablero.appendChild(this.iniciarJuego);
+        this.tablero.appendChild(this.modalGanar);
+        this.abrirInstrucciones.addEventListener('click', () => {   
+            this.instrucciones.showModal();
         });
+       
         this.container.appendChild(this.tablero); // Añadir el tablero al contenedor
     }
 
     // Método para añadir event listeners a las tarjetas
     addEventListeners() {
-        const cards = this.tablero.querySelectorAll('article'); // Seleccionar todas las tarjetas
-        cards.forEach(card => {
-            card.addEventListener('click', this.flipCard.bind(this, card)); // Usar bind para establecer el contexto
+        this.iniciarJuego.addEventListener('click', () => {
+            this.elements.forEach(element => {
+                const card = document.createElement('article');
+                card.setAttribute('data-element', element.element);
+                card.setAttribute('data-state', 'unflipped'); // Estado inicial de la tarjeta
+    
+                const header = document.createElement('h3');
+                header.textContent = 'Tarjeta de memoria';
+                card.appendChild(header);
+                card.addEventListener('click', this.flipCard.bind(this, card)); // Usar bind para establecer el contexto
+    
+                const img = document.createElement('img');
+                img.setAttribute('src', element.source);
+                img.setAttribute('alt', element.element);
+                card.appendChild(img);
+    
+                this.tablero.appendChild(card); // Añadir la tarjeta al tablero
+                });
+            this.tablero.removeChild(this.iniciarJuego);
+            }   
+        );
+
+        this.tablero.addEventListener('click', () => {
+            const cards = document.querySelectorAll('article');
+            const revealedCards = document.querySelectorAll('article[data-state="revealed"]');
+            if (cards.length === revealedCards.length && !this.finish) {
+                this.finish=true;
+                this.modalGanar.showModal();
+            }
+        });
+        this.cerrarGanar.addEventListener('click', () => {
+            this.tablero.removeChild(this.modalGanar);
+        });
+
+        this.cerrarInstrucciones.addEventListener('click', () => {
+            this.instrucciones.close();
         });
     }
 
@@ -138,7 +194,7 @@ class Memoria {
             this.firstCard.setAttribute('data-state', 'unflipped'); // Cambia el estado de la primera carta
             this.secondCard.setAttribute('data-state', 'unflipped'); // Cambia el estado de la segunda carta
             this.resetBoard(); // Resetea el tablero
-        }, 2500); // Delay de 2.5 segundos
+        }, 1300); // Delay de 1.3 segundos
     }
 
     // Método para resetear el estado del tablero

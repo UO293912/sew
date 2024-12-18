@@ -123,16 +123,9 @@ class Carrusel {
 
     init() {
         
-            const articleToFill = document.querySelector("main > section:nth-of-type(1) > article");
-            const article = document.querySelector("main > article:nth-of-type(1)"); 
-            const newArticle = document.createElement("article");
+            const articleToFill = document.querySelector("main > article");
 
-            // Insertar el nuevo div como hermano inmediato después del div seleccionado
-            article.insertAdjacentElement("afterend", newArticle);
-            const h3 = document.querySelector("main > article:nth-of-type(2) + section > h3");
-            articleToFill.appendChild(h3);
-
-            const button = document.querySelector("main > article:nth-of-type(2) + section > button");
+            const button = document.querySelector("main > button");
             button.remove();
 
 

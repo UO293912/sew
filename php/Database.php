@@ -6,26 +6,30 @@ class Database {
     private $connection;
 
     public function __construct() {
-        // Conectamos a MySQL sin especificar la base de datos
+        // Conectamos a MySQL sin especificar base de datos
         $this->connection = new mysqli(DB_HOST, DB_USER, DB_PASS);
 
         if ($this->connection->connect_error) {
             throw new Exception("Error de conexión: " . $this->connection->connect_error);
         }
 
-        // Verificamos si la base de datos existe
-        try{
-            mysqli_select_db($this->connection, DB_NAME);
-        } catch (Exception $e) {
+        // Intentamos seleccionar la base de datos
+        if (!$this->connection->select_db(DB_NAME)) {
             // Si no existe, la creamos
             $createDbQuery = "CREATE DATABASE " . DB_NAME;
             if (!$this->connection->query($createDbQuery)) {
                 throw new Exception("Error creando la base de datos: " . $this->connection->error);
             }
-            // Luego seleccionamos la base de datos
-            mysqli_select_db($this->connection, DB_NAME);
-        } 
+
+            // Seleccionamos la base de datos recién creada
+            if (!$this->connection->select_db(DB_NAME)) {
+                throw new Exception("Error seleccionando la base de datos: " . $this->connection->error);
+            }
+        }
     }
+    
+    
+    
 
     private function determineTypes($params) {
         // Verificar el tipo de cada parámetro y devolver el tipo correspondiente para cada uno
@@ -129,6 +133,10 @@ class Database {
         $this->executePrepared($query, array_values($conditions));
 
         return true;
+    }
+
+    public function getConnection() {
+        return $this->connection;
     }
 
     public function close() {

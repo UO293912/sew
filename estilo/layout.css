@@ -252,11 +252,6 @@ form button {
 
 /* Para pantallas medianas (tabletas) y más pequeñas */
 @media (max-width: 768px) {
-    /* Especificidad: 0,0,1 */
-    form {
-        width: calc(70% + 5rem);  /* El formulario ocupa el 70% del ancho más 5rem */
-        /*Redefinicion de width, antes width: calc(50% + 10rem)*/
-    }
 
     /* Especificidad: 0,0,2 */
     form textarea {
@@ -331,7 +326,7 @@ canvas {
 button {
     display: inline-block;
     margin: 1rem auto;
-    padding: 0.8rem 1.5rem;
+    padding: 0.25em 0.25em; 
     border: none;
     border-radius: 0.5em;
     cursor: pointer;
@@ -349,13 +344,6 @@ dialog {
 }
 
 
-/* Especificidad: 0,0,2 */
-dialog button {
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    margin-top: 1rem;
-}
 
 
 /* Estilos para los controles */
@@ -369,33 +357,11 @@ section > canvas + article {
 /* Estilos para los botones dentro del modal (controles) */
 /* Especificidad: 0,0,4 */
 section > canvas + article > button {
-    padding: 1em 2em; /* Aumentar el padding */
-    font-size: 1rem; /* Ajustar tamaño de fuente */
     margin: 0.5em; /* Espacio alrededor de los botones */
     cursor: pointer; /* Apunta al cursor */
     border-radius: 0.5em; /* Bordes redondeados */
 }
 
-
-/* Media Query para pantallas pequeñas (por ejemplo, menos de 600px de ancho) */
-@media (max-width: 600px) {
-
-    /* Especificidad: 0,0,4 */
-    section canvas + article > button{
-        font-size: 0.9em; /* Reducir el tamaño del texto */
-        /*Redefinicion de font-size, antes 1rem */
-    }
-}
-
-/* Media Query para pantallas aún más pequeñas (por ejemplo, menos de 400px de ancho) */
-@media (max-width: 400px) {
-    section canvas + article > button {
-        font-size: 0.8rem; /* Reducir aún más el tamaño del texto */
-        /*Redefinicion de font-size, antes 1rem */
-        padding: 0.6em 1.2em; /* Reducir aún más el tamaño de los botones */
-        /*Redefinicion de pading, antes 0.8rem 1.5rem */
-    }
-}
 
 
 /* Responsividad: ajustes en dispositivos más pequeños */

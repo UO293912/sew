@@ -165,15 +165,11 @@ class Semaforo {
     
         // Añadir los elementos al formulario
         $form.append(
-            $nameLabel,
-            $("<br>"),
-            $surnameLabel,
-            $("<br>"),
-            $levelLabel,
-            $("<br>"),
-            $timeLabel,
-            $("<br>"),
-            $submitButton
+            $("<p>").append($nameLabel),
+            $("<p>").append($surnameLabel),
+            $("<p>").append($levelLabel),
+            $("<p>").append($timeLabel),
+            $("<p>").append($submitButton)
         );
     
         // Añadir el formulario al contenedor (sección)
