@@ -68,7 +68,7 @@ class Memoria {
 
     // Método para crear las tarjetas en el DOM
     createElements() {
-        this.finish = false;
+        this.finish = true;
         this.container= document.querySelector('main'); // Selecciona el contenedor para las tarjetas
         this.tablero = document.createElement('section'); // Crear un elemento section
         this.header = document.createElement('h2');
@@ -119,16 +119,16 @@ class Memoria {
     addEventListeners() {
         this.iniciarJuego.addEventListener('click', () => {
             this.elements.forEach(element => {
-                const card = document.createElement('article');
+                var card = document.createElement('article');
                 card.setAttribute('data-element', element.element);
                 card.setAttribute('data-state', 'unflipped'); // Estado inicial de la tarjeta
     
-                const header = document.createElement('h3');
+                var header = document.createElement('h3');
                 header.textContent = 'Tarjeta de memoria';
                 card.appendChild(header);
                 card.addEventListener('click', this.flipCard.bind(this, card)); // Usar bind para establecer el contexto
     
-                const img = document.createElement('img');
+                var img = document.createElement('img');
                 img.setAttribute('src', element.source);
                 img.setAttribute('alt', element.element);
                 card.appendChild(img);
@@ -136,12 +136,13 @@ class Memoria {
                 this.tablero.appendChild(card); // Añadir la tarjeta al tablero
                 });
             this.tablero.removeChild(this.iniciarJuego);
+            this.finish = false;
             }   
         );
 
         this.tablero.addEventListener('click', () => {
-            const cards = document.querySelectorAll('article');
-            const revealedCards = document.querySelectorAll('article[data-state="revealed"]');
+            var cards = document.querySelectorAll('article');
+            var revealedCards = document.querySelectorAll('article[data-state="revealed"]');
             if (cards.length === revealedCards.length && !this.finish) {
                 this.finish=true;
                 this.modalGanar.showModal();
@@ -167,7 +168,7 @@ class Memoria {
         card.setAttribute('data-state', 'flipped'); // Se da la vuelta a la tarjeta
 
         // Mostrar la imagen en la tarjeta
-        const img = card.querySelector('img');
+        var img = card.querySelector('img');
 
         // Comprobar si ya hay una carta volteada
         if (!this.hasFlippedCard) {
@@ -182,7 +183,7 @@ class Memoria {
     // Método para mezclar las cartas utilizando el algoritmo Durstenfeld
     shuffleElements() {
         for (let i = this.elements.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
+            var j = Math.floor(Math.random() * (i + 1));
             [this.elements[i], this.elements[j]] = [this.elements[j], this.elements[i]];
         }
     }
@@ -207,7 +208,7 @@ class Memoria {
 
     // Método para comprobar si las cartas son un match
     checkForMatch() {
-        const isMatch = this.firstCard.getAttribute('data-element') === this.secondCard.getAttribute('data-element')
+        var isMatch = this.firstCard.getAttribute('data-element') === this.secondCard.getAttribute('data-element')
         isMatch ? this.disableCards() : this.unflipCards(); // Usando el operador ternario
     }
 

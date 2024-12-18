@@ -10,12 +10,12 @@ class Fondo {
         const apiUrl = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=formula1,${this.circuito},${this.pais}&format=json&nojsoncallback=1&per_page=10`;
 
         try {
-            const response = await fetch(apiUrl);
-            const data = await response.json();
+            var response = await fetch(apiUrl);
+            var data = await response.json();
 
             if (data.photos.photo.length > 0) {
-                const photo = data.photos.photo[0];
-                const imageUrl = `https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_b.jpg`;
+                var photo = data.photos.photo[0];
+                var imageUrl = `https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_b.jpg`;
                 this.establecerFondo(imageUrl);
             } else {
                 console.log("No se encontraron imágenes para el circuito.");

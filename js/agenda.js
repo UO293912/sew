@@ -8,13 +8,13 @@ class Agenda {
   // Método para realizar la consulta a la API para obtener las carreras de la temporada actual
   fetchRaces(callback) {
     // Usamos el objeto XMLHttpRequest para la consulta AJAX (sin jQuery)
-    const xhr = new XMLHttpRequest();
+    var xhr = new XMLHttpRequest();
     xhr.open("GET", this.apiUrl, true);
     xhr.responseType = "json";
 
     xhr.onload = () => {
       if (xhr.status === 200) {
-        const races = xhr.response?.MRData?.RaceTable?.Races || [];
+        var races = xhr.response?.MRData?.RaceTable?.Races || [];
         callback(races);  // Llamamos al callback con la lista de carreras
       } else {
         console.error("Error al realizar la consulta AJAX: ", xhr.status);
@@ -32,22 +32,22 @@ class Agenda {
 
   // Método para renderizar las carreras en el HTML
   renderRaces(races) {
-    const container = document.querySelector("main section"); // Selecciona el contenedor de las carreras
+    var container = document.querySelector("main section"); // Selecciona el contenedor de las carreras
 
     // Limpia el contenedor antes de agregar nuevas carreras
     container.innerHTML = "<h2>Calendario de carreras de la temporada actual</h2>";
 
     // Recorre las carreras y genera la estructura HTML
     races.forEach(race => {
-      const { raceName, Circuit, date, time } = race;
-      const { circuitName, Location } = Circuit;
-      const { lat, long, locality, country } = Location;
+      var { raceName, Circuit, date, time } = race;
+      var { circuitName, Location } = Circuit;
+      var { lat, long, locality, country } = Location;
 
       // Formato de fecha y hora
-      const raceDate = new Date(date + "T" + time).toLocaleString();
+      var raceDate = new Date(date + "T" + time).toLocaleString();
 
       // Crear un elemento section para la carrera
-      const raceElement = document.createElement("section");
+      var raceElement = document.createElement("section");
       raceElement.classList.add("race");
 
       // Añadir el contenido de la carrera
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const agenda = new Agenda(); // Creamos la instancia de Agenda
 
   // Asignamos el evento click al botón
-  const button = document.querySelector("main section button");
+  var button = document.querySelector("main section button");
   if (button) {
     button.addEventListener("click", () => {
       agenda.showRaces(); // Llamamos al método para mostrar las carreras cuando se hace clic en el botón

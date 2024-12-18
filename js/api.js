@@ -55,8 +55,8 @@ class Game {
     }
 
     updateCanvasSize() {
-        const prevWidth = this.canvas.width;
-        const prevHeight = this.canvas.height;
+        var prevWidth = this.canvas.width;
+        var prevHeight = this.canvas.height;
     
 
         this.canvas.width = this.canvas.offsetWidth ;
@@ -66,8 +66,8 @@ class Game {
         this.proximityRange = this.canvas.width * this.proximityRangeRatio;
     
         // Ajustar posiciones de elementos proporcionalmente
-        const widthRatio = this.canvas.width / prevWidth;
-        const heightRatio = this.canvas.height / prevHeight;
+        var widthRatio = this.canvas.width / prevWidth;
+        var heightRatio = this.canvas.height / prevHeight;
     
         this.carX *= widthRatio;
         this.carY *= heightRatio;
@@ -105,8 +105,8 @@ class Game {
 
     calculateSpeed(baseSpeed, score) {
         // Ajusta los multiplicadores y constantes según tu preferencia
-        const growthFactor = 0.4*(this.canvas.height/(this.baseHeight*3)); // Factor de crecimiento para controlar el aumento
-        const smoothness = 1; // Ajusta este valor para un crecimiento más lento o rápido
+        var growthFactor = 0.4*(this.canvas.height/(this.baseHeight*3)); // Factor de crecimiento para controlar el aumento
+        var smoothness = 1; // Ajusta este valor para un crecimiento más lento o rápido
         return baseSpeed + growthFactor * Math.pow(score, smoothness);
     }
 
@@ -119,8 +119,8 @@ class Game {
 
         
             // Asegúrate de que los botones estén presentes
-            const leftButton = document.querySelector("main > section > canvas + article > button:nth-of-type(1)");
-            const rightButton = document.querySelector("main > section > canvas + article > button:nth-of-type(2)");
+            var leftButton = document.querySelector("main > section > canvas + article > button:nth-of-type(1)");
+            var rightButton = document.querySelector("main > section > canvas + article > button:nth-of-type(2)");
 
             if (leftButton && rightButton) {
                 // Para el botón de la izquierda
@@ -193,7 +193,7 @@ class Game {
         } while (x < 0 || x > this.canvas.width - this.enemyWidth);
 
         // La posición en Y sigue siendo la misma (cerca de la parte superior)
-        const y = -this.enemyHeight;
+        var y = -this.enemyHeight;
 
         this.enemies.push({ x: x, y: y });
         this.lastEnemyY = y;
@@ -288,7 +288,7 @@ class Game {
 
     drawScore() {
         // Tamaño de la fuente basado en el ancho del canvas
-        const fontSize = this.canvas.width * 0.04; // 4% del ancho del canvas
+        var fontSize = this.canvas.width * 0.04; // 4% del ancho del canvas
         this.ctx.font = `${fontSize}px Arial`;
         this.ctx.fillStyle = "white";
         this.ctx.textAlign = "left";
@@ -306,12 +306,12 @@ class Game {
 
     initializeRoadLines() {
         // Calcular cuántas líneas de la carretera caben en el canvas
-        const numLines = Math.ceil(this.canvas.height / (this.lineLength + this.gap));
+        var numLines = Math.ceil(this.canvas.height / (this.lineLength + this.gap));
     
         // Crear las líneas ajustadas al tamaño del canvas
         this.roadLines = [];
         for (let i = 0; i < numLines; i++) {
-            const yPosition = i * (this.lineLength + this.gap);
+            var yPosition = i * (this.lineLength + this.gap);
             this.roadLines.push({
                 x: this.canvas.width / 2 - this.lineWidth / 2,
                 y: yPosition
@@ -325,7 +325,7 @@ class Game {
         this.ctx.setLineDash([this.lineLength, this.lineLength + this.gap]);
     
         for (let i = 0; i < this.roadLines.length; i++) {
-            const y = this.roadLines[i].y; // Acceder correctamente a la propiedad `y`
+            var y = this.roadLines[i].y; // Acceder correctamente a la propiedad `y`
             this.ctx.beginPath();
             this.ctx.moveTo(this.canvas.width / 2, y);
             this.ctx.lineTo(this.canvas.width / 2, y + this.lineLength);
@@ -370,7 +370,7 @@ class Game {
     }
 
     showRestartButton() {
-        const startButton = document.querySelector("main > section > button:nth-of-type(1)");
+        var startButton = document.querySelector("main > section > button:nth-of-type(1)");
         startButton.textContent = "Reiniciar";
         startButton.disabled = false;
 

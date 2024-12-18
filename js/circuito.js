@@ -1,12 +1,11 @@
 'use strict';
 class Circuito{
     constructor(){
-
+        this.reader = new FileReader();
     }
 
 readInputInfoFile(file) {
     if (file) {
-        var reader = new FileReader();
 
         // Limpiar solo el contenido generado dinámicamente, sin borrar la estructura original
         var section = document.querySelector('main section section:nth-of-type(1)');
@@ -47,7 +46,6 @@ readInputInfoFile(file) {
 
 readInputPlaniFile(file) {
     if (file) {
-        var reader = new FileReader();
 
         // Limpiar el contenido generado dinámicamente, sin borrar la estructura original
         var section = document.querySelector('main section section:nth-of-type(2)');
@@ -147,7 +145,6 @@ initPlanimetriaMap(allCoordinates) {
 
 readInputAltiFile(file) {
     if (file) {
-        var reader = new FileReader();
 
         // Limpiar solo el contenido generado dinámicamente, sin borrar la estructura original
         var section = document.querySelector('main section section:nth-of-type(3)');

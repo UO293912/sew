@@ -24,7 +24,7 @@
             <a href="calendario.html" title="Calendario">Calendario</a>
             <a href="meteorologia.html" title="Meteorologia">Meteorologia</a>
             <a href="circuito.html" title="Circuito">Circuito</a>
-            <a href="viajes.php" title="Viajes">Viajes</a>
+            <a href="viajes.html" title="Viajes">Viajes</a>
             <a href="juegos.html" title="Juegos" class="active">Juegos</a>
         </nav>
     </header>
@@ -35,9 +35,9 @@
         <h2>Menú de Juegos</h2>
         <ul>
             <li><a href="memoria.html">Juego de Memoria</a></li>
-            <li><a href="semaforo.php">Juego de Semáforo</a></li>
+            <li><a href="semaforo.html">Juego de Semáforo</a></li>
             <li><a href="api.html">Juego de conducción</a></li>
-            <li><a href="php/Main.php">Datos de F1</a></li>
+            <li><a href="php/main.html">Datos de F1</a></li>
         </ul>
         <section>
             <h2>Juego de conducción</h2>
@@ -67,7 +67,7 @@
         $init=true;
         $game = null;
          // Botón Iniciar
-         const startButton = document.querySelector("main > section > button:nth-of-type(1)");
+         var startButton = document.querySelector("main > section > button:nth-of-type(1)");
             if (startButton) {
                 startButton.addEventListener("click", ()=>{
                     if($init){
@@ -78,17 +78,17 @@
                     startButton.disabled = true;
                 });
             }
-            const instructionsButton = document.querySelector("main > section > button:nth-of-type(2)");
-            const dialog = document.querySelector("dialog");
-            const closeDialogButton = dialog?.querySelector("button");
+            var instructionsButton = document.querySelector("main > section > button:nth-of-type(2)");
+            var dialog = document.querySelector("dialog");
+            var closeDialogButton = dialog?.querySelector("button");
             if (instructionsButton && dialog && closeDialogButton) {
                 instructionsButton.addEventListener("click", () => {
                     fetch('xml/api.xml')
                         .then(response => response.text())
                         .then(data => {
-                            const parser = new DOMParser();
-                            const xmlDoc = parser.parseFromString(data, 'application/xml');
-                            const instructions = xmlDoc.getElementsByTagName('parrafo');
+                            var parser = new DOMParser();
+                            var xmlDoc = parser.parseFromString(data, 'application/xml');
+                            var instructions = xmlDoc.getElementsByTagName('parrafo');
                             var p = document.createElement('p');
                             let instructionsText = '';
                             for (let i = 0; i < instructions.length; i++) {

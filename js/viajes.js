@@ -67,14 +67,14 @@ class Viajes {
 
     // Método para mostrar el mapa estático de Google
     getMapaEstaticoGoogle() {
-        const ubicacion = document.querySelector('main > section > section  > div'); // Selección más flexible
+        var ubicacion = document.querySelector('main > section > section  > div'); // Selección más flexible
         const apiKey = "&key=AIzaSyBqZPeOuQ1u8WxdKbtmNOSK1Cdn8IQtwUk"; 
         const url = "https://maps.googleapis.com/maps/api/staticmap?";
-        const centro = "center=" + this.latitud + "," + this.longitud;
-        const zoom = "&zoom=14";  
-        const tamaño = "&size=2000x400";
-        const marcador = "&markers=color:red%7Clabel:S%7C" + this.latitud + "," + this.longitud;
-        const sensor = "&sensor=false";  
+        var centro = "center=" + this.latitud + "," + this.longitud;
+        var zoom = "&zoom=14";  
+        var tamaño = "&size=2000x400";
+        var marcador = "&markers=color:red%7Clabel:S%7C" + this.latitud + "," + this.longitud;
+        var sensor = "&sensor=false";  
         this.imagenMapa = url + centro + zoom + tamaño + marcador + sensor + apiKey;
         ubicacion.innerHTML = "<img src='" + this.imagenMapa + "' alt='Mapa Estático de Google' />";
     }
@@ -107,7 +107,7 @@ class Viajes {
 
     // Función para ajustar el tamaño del mapa
     resizeMapa() {
-        const mapaDiv = document.querySelector('main > section > section:nth-of-type(2) > div'); // Ajuste más flexible
+        var mapaDiv = document.querySelector('main > section > section:nth-of-type(2) > div'); // Ajuste más flexible
         google.maps.event.trigger(this.mapa, 'resize');
         this.mapa.setCenter(new google.maps.LatLng(this.latitud, this.longitud));
     }
@@ -123,9 +123,9 @@ class Carrusel {
 
     init() {
         
-            const articleToFill = document.querySelector("main > article");
+            var articleToFill = document.querySelector("main > article");
 
-            const button = document.querySelector("main > button");
+            var button = document.querySelector("main > button");
             button.remove();
 
 
@@ -140,7 +140,7 @@ class Carrusel {
 
     createImages(article) {
         this.carrouselImages.forEach((imagen) => {
-            const imgElement = document.createElement("img");
+            var imgElement = document.createElement("img");
             imgElement.src = imagen;
             imgElement.alt = "Imagen de Canadá";
             article.appendChild(imgElement);
@@ -150,8 +150,8 @@ class Carrusel {
 
     createNavigationButtons(article) {
         // Crear los botones con jQuery
-        const nextButton = $("<button>").text(">"); // Crear el botón '>'
-        const prevButton = $("<button>").text("<"); // Crear el botón '<'
+        var nextButton = $("<button>").text(">"); // Crear el botón '>'
+        var prevButton = $("<button>").text("<"); // Crear el botón '<'
 
         // Añadir los botones al contenedor article usando jQuery
         $(article).append(nextButton, prevButton);
@@ -193,13 +193,13 @@ class Carrusel {
 
     moveSlides() {
         this.slides.forEach((slide, indx) => {
-            const trans = 100 * (indx - this.curSlide);
+            var trans = 100 * (indx - this.curSlide);
             $(slide).css("transform", `translateX(${trans}%)`);
         });
     }
 
     showNoImagesMessage(article) {
-        const pElement = document.createElement("p");
+        var pElement = document.createElement("p");
         pElement.innerText = "No se encontraron imágenes para mostrar.";
         article.appendChild(pElement);
     }

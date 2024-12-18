@@ -61,7 +61,7 @@ class Pais {
     }
 
     mostrarInformacion() {
-        const section = document.querySelector('aside > section > section');
+        var section = document.querySelector('aside > section > section');
 
     
         section.innerHTML = `
@@ -106,7 +106,7 @@ class Meteo {
                 let humedadCounter = 0;
                 let humedad = 0;
                 let fechaHoy = new Date().toISOString().split('T')[0]; // Fecha de hoy
-                const articles = $('main > section > article');
+                var articles = $('main > section > article');
                 let dayIndex=0;
 
 
@@ -140,7 +140,7 @@ class Meteo {
 
                         // Cuando es 21:00, procesar el día completo
                         if (hora === "21:00:00") {
-                            const currentArticle = $(articles[dayIndex]); // Selecciona el artículo correspondiente
+                            var currentArticle = $(articles[dayIndex]); // Selecciona el artículo correspondiente
 
                             // Actualiza solo los elementos específicos dentro del artículo
                             currentArticle.find('h3').text(fecha); // Actualiza el título con la fecha
