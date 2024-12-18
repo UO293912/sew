@@ -34,13 +34,13 @@ readInputInfoFile(file) {
         document.querySelector('main section section:nth-of-type(1)').appendChild(fileContentContainer);
 
         // Leer y mostrar el contenido del archivo
-        reader.onload = function(e) {
+        this.reader.onload = function(e) {
             var content = e.target.result;
             fileContentPre.textContent = content; // Mostrar el contenido XML en el contenedor <pre>
         };
 
         // Leer el archivo como texto
-        reader.readAsText(file);
+        this.reader.readAsText(file);
     }
 }
 
@@ -65,7 +65,7 @@ readInputPlaniFile(file) {
         document.querySelector('main section section:nth-of-type(2)').insertAdjacentHTML('beforeend', fileDetails);
 
         // Leer el contenido del archivo KML
-        reader.onload = function(e) {
+        this.reader.onload = function(e) {
             var content = e.target.result;
 
             // Parsear el contenido del archivo KML para obtener las coordenadas
@@ -93,7 +93,7 @@ readInputPlaniFile(file) {
         }.bind(this);
 
         // Leer el archivo como texto
-        reader.readAsText(file);
+        this.reader.readAsText(file);
     }
 }
 
@@ -174,13 +174,13 @@ readInputAltiFile(file) {
         section.appendChild(fileContentContainer);
 
         // Leer y mostrar el contenido del archivo SVG
-        reader.onload = function (e) {
+        this.reader.onload = function (e) {
             var content = e.target.result;
             fileContentDiv.innerHTML = content; // Mostrar el contenido SVG en el contenedor <div>
         };
 
         // Leer el archivo como texto
-        reader.readAsText(file);
+        this.reader.readAsText(file);
     }
 }
 }
