@@ -116,36 +116,8 @@ class Game {
         // Esperar a que el DOM esté completamente cargado
         window.addEventListener("keydown", this.keyDownHandler.bind(this));
         window.addEventListener("keyup", this.keyUpHandler.bind(this));
-        
-            // Botón Instrucciones
-            const instructionsButton = document.querySelector("main > section > button:nth-of-type(2)");
-            const dialog = document.querySelector("dialog");
-            const closeDialogButton = dialog?.querySelector("button");
-            if (instructionsButton && dialog && closeDialogButton) {
-                instructionsButton.addEventListener("click", () => {
-                    fetch('xml/api.xml')
-                        .then(response => response.text())
-                        .then(data => {
-                            const parser = new DOMParser();
-                            const xmlDoc = parser.parseFromString(data, 'application/xml');
-                            const instructions = xmlDoc.getElementsByTagName('parrafo');
-                            var p = document.createElement('p');
-                            let instructionsText = '';
-                            for (let i = 0; i < instructions.length; i++) {
-                                instructionsText += `<p>${instructions[i].textContent}</p>`;
-                            }
-                            p.innerHTML = instructionsText;
-                            if (dialog.childNodes.length > 2) {
-                                dialog.removeChild(dialog.childNodes[2]);
-                            }
-                            dialog.insertBefore(p, closeDialogButton);
-                        })
-                        .catch(error => console.log(error));
-                    dialog.showModal();
-                });
-                closeDialogButton.addEventListener("click", () => dialog.close());
-            }
 
+        
             // Asegúrate de que los botones estén presentes
             const leftButton = document.querySelector("main > section > canvas + article > button:nth-of-type(1)");
             const rightButton = document.querySelector("main > section > canvas + article > button:nth-of-type(2)");
@@ -154,11 +126,9 @@ class Game {
                 // Para el botón de la izquierda
                 leftButton.addEventListener("mousedown", () => {
                     this.leftPressed = true;
-                    console.log("Izquierda presionado");
                 });
                 leftButton.addEventListener("mouseup", () => {
                     this.leftPressed = false;
-                    console.log("Izquierda liberado");
                 });
                 leftButton.addEventListener("mouseleave", () => {
                     this.leftPressed = false; // Detener movimiento si el cursor sale del botón
@@ -167,11 +137,9 @@ class Game {
                 // Para el botón de la derecha
                 rightButton.addEventListener("mousedown", () => {
                     this.rightPressed = true;
-                    console.log("Derecha presionado");
                 });
                 rightButton.addEventListener("mouseup", () => {
                     this.rightPressed = false;
-                    console.log("Derecha liberado");
                 });
                 rightButton.addEventListener("mouseleave", () => {
                     this.rightPressed = false; // Detener movimiento si el cursor sale del botón
@@ -245,7 +213,6 @@ class Game {
                 this.progress = this.enemies[i].y / this.canvas.height;
                 if (this.progress >= 0.5&& this.enemies.length < this.maxEnemies) {
                     this.createEnemy(); // Crear un nuevo enemigo
-                    console.log("Nuevo enemigo creado al 66% del recorrido del más antiguo.");
                 }
             }
     
@@ -257,7 +224,6 @@ class Game {
     
                 // Incrementos suaves de velocidad
                 this.enemySpeed = this.calculateSpeed(this.initialEnemySpeed, this.score);
-                console.log("Nueva velocidad de los enemigos:", this.enemySpeed);
             }
         }
     }

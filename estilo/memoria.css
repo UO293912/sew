@@ -34,10 +34,18 @@ main {
 /* Estilos para el contenedor principal */
 /* Especificidad: 0,0,1 */
 section {
-    margin-bottom: 2rem; /* Espaciado inferior adaptable */
     padding: 1.5rem; /* Espaciado interno adaptable */
     border-radius: 0.5rem; /* Esquinas redondeadas relativas */
     gap: 0.25em;
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente fila */
+    margin: auto;
+    /*Redefiniendo margin, antes "0 auto" */
+    width: calc(45% + 8vw); /* Aumenta el ancho progresivamente */
+    max-width: 100%; /* Asegura que nunca exceda el tamaño del contenedor */
+    justify-content: space-evenly;
+    box-sizing: border-box; /* Incluye padding y border en el cálculo del ancho */
+    transition: width 0.3s ease; /* Transición suave */
 }
 
 
@@ -60,24 +68,14 @@ section h2 {
     margin-bottom: 0.5em; /* Espaciado inferior adaptable */
 }
 
-/* Estilos para la sección */
-/* Especificidad: 0,0,1 */
-section {
-    display: flex;
-    flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente fila */
-    margin: auto;
-    width: calc(45% + 8vw); /* Aumenta el ancho progresivamente */
-    max-width: 100%; /* Asegura que nunca exceda el tamaño del contenedor */
-    justify-content: space-evenly;
-    box-sizing: border-box; /* Incluye padding y border en el cálculo del ancho */
-    transition: width 0.3s ease; /* Transición suave */
-}
+
 
 /* Media queries para ajustar el diseño */
 @media (max-width: 1300px) {
     /* Especificidad: 0,0,1 */
     section {
         width: calc(60% + 15vw);
+        /*Redefiniendo width, antes "calc(45% + 8vw)" */
     }
 }
 
@@ -85,6 +83,7 @@ section {
     /* Especificidad: 0,0,1 */
     section {
         width: calc(70% + 20vw);
+        /*Redefiniendo width, antes "calc(45% + 8vw)" */
     }
 }
 
@@ -101,6 +100,7 @@ article {
     transform: scale(1);
     transform-style: preserve-3d;
     background: #439CE5;
+    /*Color #000, heredado de body */
     border-radius: 0.5rem;
     position: relative;
     margin: 0;
@@ -130,7 +130,6 @@ article h3 {
     position: absolute;
     backface-visibility: hidden;
     text-align: center;
-    color: black;
     font-size: clamp(0.3em, 2.4vw, 1.3em); /* Tamaño de fuente adaptable */
     max-width: 90%; /* Evita que el texto se desborde */
     line-height: 1.2; /* Altura de línea para mejorar la legibilidad */
@@ -148,7 +147,7 @@ main > section > h2 + p{
     font-size: 1.3em;
 }
 
-/*Epecificidad: 0,0,2 */
+/*Epecificidad: 0,0,1 */
 button{
     flex-basis: 100%; /* Ocupa todo el ancho */
     align-self: flex-start; /* Alinea el botón al inicio*/

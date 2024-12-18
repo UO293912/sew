@@ -354,6 +354,12 @@ section > canvas + article {
     align-items: center; /* Centrar los botones verticalmente */
 }
 
+/* Estilos para los controles */
+/* Especificidad: 0,0,3 */
+section > canvas + article >h3{
+    display: none; /* Ocultar el título de los controles */
+}
+
 /* Estilos para los botones dentro del modal (controles) */
 /* Especificidad: 0,0,4 */
 section > canvas + article > button {

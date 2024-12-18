@@ -31,6 +31,7 @@ main {
 }
 
 /* Estilos para el contenedor principal */
+/*Especificidad: 0,0,1 */
 section {
     width: 80%; 
     aspect-ratio: 1/0.5;
@@ -55,11 +56,13 @@ h1 {
 }
 
 /* Estilos para h2 */
+/*Especificidad: 0,0,1 */
 h2 {
     margin-bottom: 0.5rem;
 }
 
 /* Encabezado del juego */
+/*Especificidad: 0,0,1 */
 section h3 {
     grid-column: span 4; /* Título ocupa toda la fila superior */
     margin: 0; 
@@ -67,6 +70,7 @@ section h3 {
 }
 
 /* Estilos para las luces del semáforo */
+/*Especificidad: 0,0,2 */
 section div {
     width: 80%;
     background-color: #0007;
@@ -80,15 +84,10 @@ section div {
     
 }
 
-/* Estilos para los botones */
-section button {
-    padding: 1vw; 
-    font-size: 2vw; 
-    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
 
-}
 
 /* Estilos para los botones en estado deshabilitado */
+/*Especificidad: 0,1,2 */
 section button:disabled {
     background-color: #cccccc; /* Color de fondo para indicar que está deshabilitado */
     color: #383838; /* Color del texto deshabilitado */
@@ -96,69 +95,88 @@ section button:disabled {
     opacity: 0.6; /* Reduce la opacidad para reforzar el efecto */
 }
 
-
+/*Especificidad: 0,1,2 */
 section button:first-of-type {
     grid-column: span 2; /* Botón en la segunda columna */
 }
 
+/*Especificidad: 0,1,2 */
 section button:nth-of-type(2) {
     grid-column: span 2; /* Botón en la tercera columna */
 }
 
 /* Ajustar el retraso en el encendido de cada luz */
+/*Especificidad: 0,2,2 */
 section.load div:nth-of-type(1) {
     animation-name: lightOn;
     animation-delay: 0s; /* Sin retraso para la primera luz */
 }
 
+/*Especificidad: 0,2,2 */
 section.load div:nth-of-type(2) {
     animation-name: lightOn;
     animation-delay: 0.5s; /* Retraso para la segunda luz */
 }
 
+/*Especificidad: 0,2,2 */
 section.load div:nth-of-type(3) {
     animation-name: lightOn;
     animation-delay: 1s; /* Retraso para la tercera luz */
 }
 
+/*Especificidad: 0,2,2 */
 section.load div:nth-of-type(4) {
     animation-name: lightOn;
     animation-delay: 1.5s; /* Retraso para la cuarta luz */
 }
 
 /* Estilos para las luces del semáforo en el estado apagado */
+/*Especificidad: 0,2,2 */
 section.unload div:nth-of-type(1) {
     animation-name: out; 
     animation-duration: 0.1s; 
 }
 
+/*Especificidad: 0,2,2 */
 section.unload div:nth-of-type(2) {
     animation-name: out; 
     animation-duration: 0.1s; 
 }
 
+/*Especificidad: 0,2,2 */
  section.unload div:nth-of-type(3) {
     animation-name: out; 
     animation-duration: 0.1s; 
 }
 
+/*Especificidad: 0,2,2 */
 section.unload div:nth-of-type(4) {
     animation-name: out; 
     animation-duration: 0.1s; 
 }
 
 /* Estilos para el párrafo en la última fila de la cuadrícula */
+/*Especificidad: 0,0,2 */
 section p {
     grid-column: span 4; /* Ocupa toda la fila */
     text-align: center;   /* Alineación de texto al centro */
 }
+/*Espeficidad: 0,0,1 */
 form {
     justify-content: center; /* Distribuye los elementos al centro */
     gap: 1rem; /* Espacio entre elementos */
     margin-top: 1rem; /* Espacio superior */
 }
 
-input, label, form button {
+/*Espeficidad: 0,0,1 */
+input, label{
+    font-size: 1rem; /* Tamaño de fuente */
+    border-radius: 0.5rem; /* Esquinas redondeadas */
+    margin: 0.5rem; /* Espaciado entre elementos */
+}
+
+/*Espeficidad: 0,0,2 */
+form button {
     font-size: 1rem; /* Tamaño de fuente */
     border-radius: 0.5rem; /* Esquinas redondeadas */
     margin: 0.5rem; /* Espaciado entre elementos */
@@ -218,7 +236,7 @@ input, label, form button {
         align-items: flex-start; /* Alinea los enlaces al inicio */
     }
 
-    /*  Especificidad: 0,0,3 */
+    /*  Especificidad: 0,0,4 */
     header nav ul li {
         margin-right: 0; /* Elimina el margen derecho en enlaces */
         margin-bottom: 0.5rem; /* Añade espacio inferior entre enlaces */

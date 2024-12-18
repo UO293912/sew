@@ -66,11 +66,6 @@
             // Selecciona los tres botones usando selectores dentro de la estructura
             const botones = main.querySelectorAll('section > section > input[type="file"]');
 
-            // Itera sobre los botones y muestra sus detalles en la consola
-            botones.forEach((boton, index) => {
-                console.log(`Botón ${index + 1}:`, boton);
-            });
-
             // Asignar los métodos específicos de `circuito` según el tipo de archivo
             botones.forEach((boton) => {
                 if (boton.accept === ".xml") {

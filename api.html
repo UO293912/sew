@@ -49,6 +49,7 @@
             <canvas ></canvas>
             
             <article>
+                <h3>Controles</h3>
                 <button>Izquierda</button>
                 <button>Derecha</button>
             </article>
@@ -77,6 +78,34 @@
                     startButton.disabled = true;
                 });
             }
+            const instructionsButton = document.querySelector("main > section > button:nth-of-type(2)");
+            const dialog = document.querySelector("dialog");
+            const closeDialogButton = dialog?.querySelector("button");
+            if (instructionsButton && dialog && closeDialogButton) {
+                instructionsButton.addEventListener("click", () => {
+                    fetch('xml/api.xml')
+                        .then(response => response.text())
+                        .then(data => {
+                            const parser = new DOMParser();
+                            const xmlDoc = parser.parseFromString(data, 'application/xml');
+                            const instructions = xmlDoc.getElementsByTagName('parrafo');
+                            var p = document.createElement('p');
+                            let instructionsText = '';
+                            for (let i = 0; i < instructions.length; i++) {
+                                instructionsText += `<p>${instructions[i].textContent}</p>`;
+                            }
+                            p.innerHTML = instructionsText;
+                            if (dialog.childNodes.length > 2) {
+                                dialog.removeChild(dialog.childNodes[2]);
+                            }
+                            dialog.insertBefore(p, closeDialogButton);
+                        })
+                        .catch(error => console.log(error));
+                    dialog.showModal();
+                });
+                closeDialogButton.addEventListener("click", () => dialog.close());
+            }
+
 
     </script>
 
